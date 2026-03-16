@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Stack Developer ePortfolio</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Sticky Navigation -->
+<nav id="navbar">
+  <ul>
+    <li><a href="#about">About Me</a></li>
+    <li><a href="#fullstack">Full Stack</a></li>
+    <li><a href="#html-demo">HTML</a></li>
+    <li><a href="#css-demo">CSS</a></li>
+    <li><a href="#bootstrap-demo">Bootstrap</a></li>
+    <li><a href="#js-demo">JavaScript</a></li>
+    
+  </ul>
+  <button id="theme-toggle">🌙</button>
+</nav>
+
+<!-- Back to Top -->
+<button id="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'});">⬆ Top</button>
+
+<!-- Header -->
+<header>
+  <h1>Full Stack Development ePortfolio</h1>
+  <p>Github Profile: <a href="https://github.com/pyatrick666" target="_blank">pyatrick666</a> | Canvas ID: bwit24f.ptk@ismt.edu.np</p>
+ 
+  <a href="resume.pdf" download><button>Download Resume</button></a>
+</header>
+
+<hr>
+
+<!-- About Me & Skills -->
+<section id="about">
+  <h2>About Me</h2>
+  <div class="about-container">
+    <img src="profile.jpg" alt="Profile Photo" class="profile-pic">
+    <p>Hi, I’m Pratik Poudel, a junior full-stack developer passionate about building modern and responsive web applications. Skilled in HTML, CSS, JavaScript, and Bootstrap.</p>
+  </div>
+  <h3>Skills</h3>
+  <div class="skill-bar"><span>HTML</span><div class="bar"><div class="progress html"></div></div></div>
+  <div class="skill-bar"><span>CSS</span><div class="bar"><div class="progress css"></div></div></div>
+  <div class="skill-bar"><span>JavaScript</span><div class="bar"><div class="progress js"></div></div></div>
+  <div class="skill-bar"><span>Bootstrap</span><div class="bar"><div class="progress bootstrap"></div></div></div>
+</section>
+
+<hr>
+
+<!-- Full Stack Development Explanation -->
+<section id="fullstack">
+  <h2>What is Full Stack Development?</h2>
+  <p>Full stack development involves creating both the front-end (client-side) and back-end (server-side) of web applications. A full stack developer handles databases, servers, APIs, and user interfaces to build complete, functional web applications.</p>
+</section>
+
+<hr>
+
+<!-- HTML Demo -->
+<section id="html-demo">
+  <h2>HTML Demo</h2>
+  <p>This demo shows basic HTML structure and usage.</p>
+  <pre><code>&lt;h1&gt;Heading Example&lt;/h1&gt;
+&lt;p&gt;Paragraph Example&lt;/p&gt;</code></pre>
+  <div class="demo-box">
+    <h1>Heading Example</h1>
+    <p>This paragraph demonstrates HTML structure.</p>
+    <ul>
+      <li>HTML creates page structure</li>
+      <li>Headings organize content</li>
+      <li>Lists display grouped information</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CSS Demo -->
+<section id="css-demo">
+  <h2>CSS Demo</h2>
+  <p>This demo shows styling using CSS, including colors, padding, and border-radius.</p>
+  <pre><code>p {
+  color: #0d6efd;
+  font-weight: bold;
+}</code></pre>
+  <div class="demo-box css-demo-box">
+    <p>This text is styled with CSS (color + font weight).</p>
+    <div class="styled-box">Background, padding, and border-radius applied.</div>
+  </div>
+</section>
+
+<!-- Bootstrap Demo -->
+<section id="bootstrap-demo">
+  <h2>Bootstrap Demo</h2>
+  <p>Demonstration of responsive cards and buttons.</p>
+  <pre><code>&lt;div class="card"&gt;&lt;h5&gt;Card&lt;/h5&gt;&lt;/div&gt;</code></pre>
+  <div class="flex-container">
+    <div class="bootstrap-card">Card 1<button>Button</button></div>
+    <div class="bootstrap-card">Card 2<button>Button</button></div>
+    <div class="bootstrap-card">Card 3<button>Button</button></div>
+  </div>
+</section>
+
+<!-- JavaScript Demo -->
+<section id="js-demo">
+  <h2>JavaScript Demo</h2>
+  <p>Interactive popup message demo.</p>
+  <pre><code>function showPopup() {
+  const input = document.getElementById("popup-input").value;
+  alert("You submitted: " + input);
+}</code></pre>
+  <input type="text" id="popup-input" placeholder="Type something...">
+  <button onclick="showPopup()">Submit</button>
+</section>
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

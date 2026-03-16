@@ -1,0 +1,72 @@
+/* Modern gradient background */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #c0e4ff, #ffffff);
+  transition: background 0.5s;
+}
+
+/* Cards and sections */
+header, section {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(5px);
+}
+
+h1,h2,h3 { text-align: center; }
+
+/* Profile picture */
+.profile-pic {
+  width: 150px;
+  border-radius: 50%;
+  border: 3px solid #0d6efd;
+}
+
+/* Frost/snowflake canvas overlay */
+#snowfall-canvas {
+  position: fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none; /* allows clicking through */
+  z-index:999;
+}
+
+/* Button styles */
+button {
+  padding:10px;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+  transition: transform 0.2s;
+}
+button:hover { transform: scale(1.05); }
+
+/* Dark mode support */
+body.dark-mode { background: #121212; color: #e0e0e0; }
+body.dark-mode header, body.dark-mode section { background: rgba(30,30,30,0.8); }
+
+/* Skill bars */
+.skill-bar { margin:10px 0; }
+.skill-bar span { display:block; font-weight:bold; margin-bottom:5px; }
+.bar { background:#e9ecef; border-radius:10px; height:20px; overflow:hidden; }
+.progress.html { width:90%; background:#0d6efd; height:20px; border-radius:10px; }
+.progress.css { width:85%; background:#198754; height:20px; border-radius:10px; }
+.progress.js { width:80%; background:#dc3545; height:20px; border-radius:10px; }
+.progress.bootstrap { width:75%; background:#ffc107; height:20px; border-radius:10px; }
+
+/* Navbar */
+#navbar { position: sticky; top:0; background:#0d6efd; display:flex; justify-content:space-between; align-items:center; padding:10px; z-index:1000; }
+#navbar ul { list-style:none; display:flex; gap:15px; margin:0; padding:0; }
+#navbar ul li a { color:white; text-decoration:none; font-weight:bold; padding:8px; }
+
+/* Back to top */
+#back-to-top { position:fixed; bottom:30px; right:30px; background:#0d6efd; color:white; }
+
+/* Toggle snowfall button */
+#snow-toggle { position: fixed; bottom: 30px; left:30px; background:#0d6efd; color:white; z-index:1000; }
