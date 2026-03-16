@@ -9,6 +9,4 @@ This portfolio demonstrates my understanding of technologies used in full stack 
 - Bootstrap Framework
 - JavaScript
 
-## Live Portfolio
 
-https://YOUR_USERNAME.github.io/fullstack-eportfolio
