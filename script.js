@@ -80,3 +80,108 @@ snowBtn.onclick = function(){
   snowfallActive = !snowfallActive;
   snowBtn.style.background = snowfallActive ? "#0d6efd" : "#6c757d";
 };
+/// Fetch GitHub repositories
+fetch("https://api.github.com/users/pyatrick666/repos")
+.then(response => response.json())
+.then(data => {
+
+const container = document.getElementById("github-projects");
+container.innerHTML = "";
+
+data.slice(0,6).forEach(repo => {
+
+let languageBadge = "";
+
+if(repo.language){
+languageBadge = `<span class="language-badge">${repo.language}</span>`;
+}
+
+const card = document.createElement("div");
+
+card.className = "project-card";
+
+card.innerHTML = `
+<h3>${repo.name}</h3>
+
+<p>${repo.description || "No description provided."}</p>
+
+<div class="repo-meta">
+${languageBadge}
+⭐ ${repo.stargazers_count}
+🍴 ${repo.forks_count}
+</div>
+
+<a href="${repo.html_url}" target="_blank">
+<button>View Repository</button>
+</a>
+`;
+
+container.appendChild(card);
+
+});
+
+});
+const words = [
+"Full Stack Developement ",
+"Software Engineering ",
+"Networking ",
+"and more "
+];
+
+let i = 0;
+let j = 0;
+let currentWord = "";
+let isDeleting = false;
+
+function typeEffect(){
+
+const element = document.getElementById("typing-text");
+
+if(i < words.length){
+
+if(!isDeleting && j <= words[i].length){
+currentWord = words[i].substring(0,j++);
+}
+
+if(isDeleting && j >= 0){
+currentWord = words[i].substring(0,j--);
+}
+
+element.textContent = currentWord;
+
+if(j == words[i].length){
+isDeleting = true;
+setTimeout(typeEffect,1000);
+return;
+}
+
+if(isDeleting && j === 0){
+isDeleting = false;
+i++;
+if(i === words.length){
+i = 0;
+}
+}
+
+}
+
+setTimeout(typeEffect,100);
+
+}
+
+typeEffect();
+const sections = document.querySelectorAll("section");
+
+window.addEventListener("scroll",()=>{
+
+sections.forEach(section=>{
+
+const sectionTop = section.getBoundingClientRect().top;
+
+if(sectionTop < window.innerHeight - 100){
+section.classList.add("show");
+}
+
+});
+
+});
