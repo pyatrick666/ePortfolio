@@ -1,0 +1,64 @@
+body{
+font-family: Arial;
+text-align:center;
+background: linear-gradient(to right,#e3f2fd,#ffffff);
+}
+
+nav{
+background:#0d6efd;
+padding:10px;
+}
+
+nav a{
+color:white;
+margin:10px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.profile-pic{
+width:150px;
+border-radius:50%;
+margin:10px;
+}
+
+button{
+padding:10px;
+background:#0d6efd;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+section{
+margin:30px;
+padding:20px;
+background:white;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.styled-text{
+color:red;
+font-weight:bold;
+}
+
+.card{
+padding:20px;
+background:#f8f9fa;
+border-radius:10px;
+margin:10px;
+}
+.progress{
+    height:20px;
+    border-radius:10px;
+    width:0;
+    transition: width 2s ease;
+}
+
+/* Animate on load */
+body.loaded .progress.html { width:90%; }
+body.loaded .progress.css { width:85%; }
+body.loaded .progress.js { width:80%; }
+body.loaded .progress.bootstrap { width:75%; }
