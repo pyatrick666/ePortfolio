@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio</title>
@@ -8,9 +9,18 @@
 </head>
 
 <body>
-<style>
+  
 
-#navbar {
+  <div class="container">
+ <div class="bg-animation">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  </div>
+    <style>
+      
+      #navbar {
   background-color: #0d6efd;
   padding: 15px 30px;
 }
@@ -67,52 +77,51 @@
 </nav>
 
 <header class="portfolio-header">
-
-<h1>
-   
-    <img src="profile.jpg" alt="Profile" class="profile-pic">
-     Hi, I'm  Pratik Poudel
-    and i'm currently learning
-<b id="typing-text"></b>
-
-</h1>
-
-
-
-
-<p>
-  <a href="https://github.com/pyatrick666" target="_blank">
-    github.com/pyatrick666
-  </a>
-</p>
-<p class="email">pyatrick666@gmail.com</p>
-
-<div class="resume-section">
-<a href="resume.pdf" download>
-<button>Download Resume</button>
-</a>
-</div>
-
-<!-- ABOUT -->
-<section id="about.html">
+  
+  <h1>
     
-<h2>About Me</h2>
-<p>
-I am a passionate Junior Full Stack Developer focused on building modern,
-responsive, and user-friendly web applications.
-I'm currently studying BSC.I.T at University of Sunderland.
-</p>
-</section>
+    <img src="profile.jpg" alt="Profile" class="profile-pic">
+    Hi, I'm  Pratik Poudel
+    and i'm currently learning
+    <b id="typing-text"></b>
+    
+  </h1>
+  
+  
+  
+  
+  <p>
+    <a href="https://github.com/pyatrick666" target="_blank">
+      github.com/pyatrick666
+    </a>
+  </p>
+  <p class="email">pyatrick666@gmail.com</p>
+  
+  <div class="resume-section">
+    <a href="resume.pdf" download>
+      <button>Download Resume</button>
+    </a>
+  </div>
+  
+  <!-- ABOUT -->
+  <section id="about.html">
+    
+    <h2>About Me</h2>
+    <p>
+      I am a passionate Junior Full Stack Developer focused on building modern,
+      responsive, and user-friendly web applications.
+      I'm currently studying BSC.I.T at University of Sunderland.
+    </p>
+  </section>
 </header>
 
 <!-- GitHub Projects -->
 <section>
-<h3>My GitHub Projects</h3>
-<p id="github-projects"></p>
+  <h3>My GitHub Projects</h3>
+  <p id="github-projects"></p>
 </section>
 
 <script src="script.js"></script>
-</body>
 
 
 <script src="script.js"></script>
@@ -128,4 +137,42 @@ I'm currently studying BSC.I.T at University of Sunderland.
     <a href="https://www.facebook.com/evolthrottle" target="_blank"><i class="fab fa-facebook"></i></a>
     <a href="https://www.youtube.com/@999eMEvol" target="_blank"><i class="fab fa-youtube"></i></a>
   </div>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
+
+  const links = document.querySelectorAll("a");
+
+  links.forEach(link => {
+    link.addEventListener("click", function(e) {
+      const href = this.getAttribute("href");
+
+      // Ignore external links or anchors
+      if (href && !href.startsWith("#") && !href.startsWith("http")) {
+        e.preventDefault();
+        document.body.classList.add("fade-out");
+
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      }
+    });
+  });
+});
+</script>
+ <script>
+    const currentPage = window.location.pathname.split("/").pop();
+
+    const navLinks = document.querySelectorAll(".navbar a");
+
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute("href");
+
+      if (linkPage === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+</body>
+</div>
 </footer>
