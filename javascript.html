@@ -1,39 +1,99 @@
-<section>
-<h2>JavaScript</h2>
-
-<img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" width="120">
-
-<p>
-JavaScript is used to make websites interactive, such as handling events, forms, and dynamic content.
-</p>
-
-<h3>Code Example</h3>
-
-<pre><code>
-function showPopup() {
-  let input = document.getElementById("popup-input").value;
-  alert("You entered: " + input);
-}
-</code></pre>
-
-<h3>Live Demo</h3>
-<script>
-function showPopup() {
-    let input = document.getElementById("popup-input").value;
-
-    if (input.trim() === "") {
-        alert("Please enter something!");
-    } else {
-        alert("You entered: " + input);
-    }
-}
-</script>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-animation">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div class="container">
+    
+    <section>
+        <h2>JavaScript</h2>
+        
+        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" width="120">
+        
+        <p>
+            JavaScript is an interpreted language that enables interactivity through Document
+            Object Model (DOM) manipulation, event handling, and asynchronous operations like
+            API calls. Modern JavaScript (ES6 and beyond) introduces features
+            such as arrow functions, promises, async/await, modules, destructuring, and classes,
+            enhancing code readability and modularity. The proposed ES2025 standard includes
+            the Temporal API for date/time handling and pattern matching for advanced logic.
+            JavaScript is used for dynamic user interfaces, single-page applications (SPAs) with
+            frameworks like React or Vue, server-side applications via Node.js, and cross
+            platform apps using React Native or Electron, making it a cornerstone of modern
+            development. JavaScript is used to make websites interactive, such as handling events, forms, and dynamic content.
+        </p>
+        
+        <h3>Code Example</h3>
+        
+        <pre><code>
+            function showPopup() {
+                let input = document.getElementById("popup-input").value;
+                alert("You entered: " + input);
+            }
+        </code></pre>
+        
+        <h3>Live Demo</h3>
+        <script>
+            function showPopup() {
+                let input = document.getElementById("popup-input").value;
+                
+                if (input.trim() === "") {
+                    alert("Please enter something!");
+                } else {
+                    alert("You entered: " + input);
+                }
+            }
+        </script>
 <input type="text" id="popup-input" placeholder="Type something">
 <button onclick="showPopup()">Submit</button>
 
 <p>
-This example shows how JavaScript interacts with user input.
+    This example shows how JavaScript interacts with user input.
 </p>
 
 <a href="https://www.w3schools.com/js/" target="_blank">Learn JavaScript</a>
 </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
+
+  const links = document.querySelectorAll("a");
+
+  links.forEach(link => {
+    link.addEventListener("click", function(e) {
+      const href = this.getAttribute("href");
+
+      // Ignore external links or anchors
+      if (href && !href.startsWith("#") && !href.startsWith("http")) {
+        e.preventDefault();
+        document.body.classList.add("fade-out");
+
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      }
+    });
+  });
+});
+</script>
+ <script>
+    const currentPage = window.location.pathname.split("/").pop();
+
+    const navLinks = document.querySelectorAll(".navbar a");
+
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute("href");
+
+      if (linkPage === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+</body>
+</div>
