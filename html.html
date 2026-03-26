@@ -1,23 +1,88 @@
-<!DOCTYPE html>
-<html>
 <head>
-<title>HTML</title>
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">  
 </head>
-
 <body>
+    <div class="container">
+  
+  <div class="bg-animation">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <section>
+        <h2>HTML (HyperText Markup Language)</h2>
+        
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" width="120">
+        
+        <p>
+            HTML is used to structure web pages using elements like headings, paragraphs, links, and images.
+            HTML is the standard markup language for creating web pages, utilizing tags to define elements such as headings , paragraphs, lists , links , images , tables , and forms.
+            The advent of HTML5 introduced semantic elements like header, nav, article, section, and footer, which enhance content organization, accessibility, and search engine optimization (SEO).
+            HTML5 also supports multimedia elements like video, audio, a canvas for graphics, and APIs for features like geolocation, drag-and-drop, and local storage.
+            HTML is widely used for static websites, web forms, landing pages, and as a foundation for dynamic applications when paired with JavaScript. Its versatility makes it indispensable in web development.
+            
+        </p>
+        
+        <h3>Code Example</h3>
+        
+        <pre><code>
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;body&gt;
+            
+            &lt;h1&gt;Hello World&lt;/h1&gt;
+            &lt;p&gt;This is a paragraph&lt;/p&gt;
+            
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code></pre>
+        
+        <h3>Live Demo</h3>
+        
+        <div class="demo-box">
+            <h1>Hello World</h1>
+            <p>This is a paragraph created using HTML.</p>
+        </div>
+        
+        <a href="https://www.w3schools.com/html/" target="_blank">Learn HTML</a>
+    </section>
+   
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
 
-<section>
-<h2>HTML Demo</h2>
+  const links = document.querySelectorAll("a");
 
-<img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" width="100">
+  links.forEach(link => {
+    link.addEventListener("click", function(e) {
+      const href = this.getAttribute("href");
 
-<pre>
-<h1>Heading</h1>
-<p>Paragraph</p>
-</pre>
+      // Ignore external links or anchors
+      if (href && !href.startsWith("#") && !href.startsWith("http")) {
+        e.preventDefault();
+        document.body.classList.add("fade-out");
 
-</section>
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      }
+    });
+  });
+});
+</script>
+ <script>
+    const currentPage = window.location.pathname.split("/").pop();
 
+    const navLinks = document.querySelectorAll(".navbar a");
+
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute("href");
+
+      if (linkPage === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
 </body>
-</html>
+</div>
