@@ -1,26 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <link rel="stylesheet" href="style.css"><link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>About</title>
+
+<!-- ✅ CSS MUST BE HERE -->
 <link rel="stylesheet" href="style.css">
 </head>
+<div class="container">
 
-<body>
+  <body>
+    <div class="bg-animation">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <section id="about">
+      <h2>About Me</h2>
+      
+      <p>
+        I am a passionate Junior Full Stack Developer focused on building modern,
+        responsive, and user-friendly web applications.
+        I'm from butwal,Nepal and,
+        I'm currently studying BSC.I.T at University of Sunderland.
+      </p>
+      
+      <h3>Skills</h3>
+    </section>
+    
+    <section id="skills">
+      
+      <div class="card">
+        <p>HTML</p>
+        <div class="progress html"></div>
+      </div>
+      
+      <div class="card">
+        <p>CSS</p>
+        <div class="progress css"></div>
+      </div>
+      
+      <div class="card">
+        <p>JavaScript</p>
+        <div class="progress js"></div>
+      </div>
+      
+    </section>
+    
+    <!-- ✅ JS MUST BE HERE -->
+    <script src="script.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
 
-<nav>
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-</nav>
+  const links = document.querySelectorAll("a");
 
-<section>
-<h2>About Me</h2>
+  links.forEach(link => {
+    link.addEventListener("click", function(e) {
+      const href = this.getAttribute("href");
 
-<p>
-I am Pratik Poudel, a junior full stack developer.
-I build responsive websites using HTML, CSS, JavaScript, and Bootstrap.
-</p>
+      // Ignore external links or anchors
+      if (href && !href.startsWith("#") && !href.startsWith("http")) {
+        e.preventDefault();
+        document.body.classList.add("fade-out");
 
-</section>
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      }
+    });
+  });
+});
+</script>
+ <script>
+    const currentPage = window.location.pathname.split("/").pop();
 
-</body>
-</html>
+    const navLinks = document.querySelectorAll(".navbar a");
+
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute("href");
+
+      if (linkPage === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+  </body>
+  </html>
+</div>
