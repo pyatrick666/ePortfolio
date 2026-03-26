@@ -1,20 +1,82 @@
-<!DOCTYPE html>
-<html>
 <head>
-<title>CSS</title>
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<section>
-<h2>CSS Demo</h2>
-
-<img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" width="100">
-
-<p class="styled-text">This is styled text</p>
-
+  <div class="container">
+  
+  <div class="bg-animation">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  
+  <section>
+    <h2>CSS (Cascading Style Sheets)</h2>
+    
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" width="120">
+    
+    <p>
+      CSS is used to style HTML elements, including colors, layouts, spacing, and responsiveness.CSS is a stylesheet language that controls the visual presentation of HTML elements, defining properties such as colors, fonts, layouts, and animations through selectors.
+      CSS3, the latest evolution, introduces advanced features like flexbox and grid layouts for flexible designs, media queries for responsive styling, transitions and animations for interactivity, custom properties (variables) for dynamic styling, and pseudo-classes (e.g., :hover, :focus) for enhanced user experience.
+      CSS is widely used for responsive designs, theme switching (e.g., dark/light modes), animations to improve user experience, and complex layouts with CSS Grid or Flexbox. Its versatility makes it essential for modern web development (Meyer, 2016).
+      
+    </p>
+    
+    <h3>Code Example</h3>
+    
+    <pre><code>
+      p {
+        color: blue;
+        font-weight: bold;
+      }
+    </code></pre>
+    
+    <h3>Live Demo</h3>
+    
+    <div class="demo-box">
+      <p style="color:blue; font-weight:bold;">
+      This paragraph is styled using CSS.
+    </p>
+  </div>
+  
+  <a href="https://www.w3schools.com/css/" target="_blank">Learn CSS</a>
 </section>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
 
+  const links = document.querySelectorAll("a");
+
+  links.forEach(link => {
+    link.addEventListener("click", function(e) {
+      const href = this.getAttribute("href");
+
+      // Ignore external links or anchors
+      if (href && !href.startsWith("#") && !href.startsWith("http")) {
+        e.preventDefault();
+        document.body.classList.add("fade-out");
+
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      }
+    });
+  });
+});
+</script>
+ <script>
+    const currentPage = window.location.pathname.split("/").pop();
+
+    const navLinks = document.querySelectorAll(".navbar a");
+
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute("href");
+
+      if (linkPage === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
 </body>
-</html>
+</div>
