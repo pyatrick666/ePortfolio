@@ -1,32 +1,91 @@
-<section>
-<h2>What is Full Stack Development?</h2>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
 
-<img src="https://www.gyansetu.in/wp-content/uploads/2024/02/image-8.webp" width="650">
+<body>
+    <div class="container">
+  
+  <div class="bg-animation">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <section>
+        <h2>What is Full Stack Development?</h2>
+        
+        <img src="https://www.gyansetu.in/wp-content/uploads/2024/02/image-8.webp" width="650">
+        
+        <p>
+            Full Stack Development refers to the development of both frontend (client-side) and backend (server-side) parts of a web application Where,Front-End: Sends HTTP requests (e.g., via Fetch API) to the back-end.
+            Back-End: Processes logic, queries the database, and returns data.
+            Database: Stores and retrieves data (e.g., user profiles)
+            Full-stack developers take part in all aspects of software development, from user experience design to server-side database management.
+            Full-stack developers are skilled in both front-end and back-end languages and technologies, as well as web design and database management.
+            
+        </p>
+        
+        <ul>
+            <li><b>Frontend:</b> HTML, CSS, JavaScript</li>
+            <p>Front-End: Sends HTTP requests (e.g., via Fetch API) to the back-end.</p>
+            <li><b>Backend:</b> Node.js, PHP, Databases</li>
+            <p>while,
+                Back-End: Processes logic, queries the database, and returns data.
+                Database: Stores and retrieves data (e.g., user profiles)</p>
+            </ul>
+            
+            <h3>Example Architecture</h3>
+            
+            <pre><code>
+                User → Browser (HTML/CSS/JS)
+                → Server (Node.js)
+                → Database (MySQL)
+            </code></pre>
+            
+            <p>
+                Example: When a user logs in, frontend collects data, backend processes it, and database stores it.
+            </p>
+            
+            <a href="https://www.w3schools.com/whatis/whatis_fullstack.asp" target="_blank">
+                Learn More
+            </a>
+       <script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("loaded");
 
-<p>
-Full Stack Development refers to the development of both frontend (client-side) and backend (server-side) parts of a web application.
-Full-stack developers take part in all aspects of software development, from user experience design to server-side database management.
-Full-stack developers are skilled in both front-end and back-end languages and technologies, as well as web design and database management.
-</p>
+  const links = document.querySelectorAll("a");
 
-<ul>
-<li><b>Frontend:</b> HTML, CSS, JavaScript</li>
-<li><b>Backend:</b> Node.js, PHP, Databases</li>
-</ul>
+  links.forEach(link => {
+    link.addEventListener("click", function(e) {
+      const href = this.getAttribute("href");
 
-<h3>Example Architecture</h3>
+      // Ignore external links or anchors
+      if (href && !href.startsWith("#") && !href.startsWith("http")) {
+        e.preventDefault();
+        document.body.classList.add("fade-out");
 
-<pre><code>
-User → Browser (HTML/CSS/JS)
-→ Server (Node.js)
-→ Database (MySQL)
-</code></pre>
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500);
+      }
+    });
+  });
+});
+</script>
+ <script>
+    const currentPage = window.location.pathname.split("/").pop();
 
-<p>
-Example: When a user logs in, frontend collects data, backend processes it, and database stores it.
-</p>
+    const navLinks = document.querySelectorAll(".navbar a");
 
-<a href="https://www.w3schools.com/whatis/whatis_fullstack.asp" target="_blank">
-Learn More
-</a>
-</section>
+    navLinks.forEach(link => {
+      const linkPage = link.getAttribute("href");
+
+      if (linkPage === currentPage) {
+        link.classList.add("active");
+      }
+    });
+  </script>
+        </body>
+        
+    </section>
+</div>
