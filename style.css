@@ -545,71 +545,23 @@ p a:hover {
 @media (max-width: 768px) {
   #navbar {
     padding: 12px 20px;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   #nav-links {
-    gap: 12px;
-  }
-
-  .portfolio-header h1 {
-    font-size: 1.4rem;
-    text-align: center;
-    padding: 0 20px;
-    line-height: 1.5;
-  }
-
-  .profile-pic {
-    width: 130px;
-    height: 130px;
-  }
-
-  section {
-    padding: 30px 20px;
-  }
-
-  .about-section {
-    padding: 30px 20px 20px;
-  }
-
-  .about-card {
-    padding: 20px;
-  }
-
-  .skills-section {
-    padding: 20px 20px 100px;
-  }
-
-  #github-projects {
-    grid-template-columns: 1fr;
-    padding: 10px;
-  }
-
-  footer {
-    flex-direction: column;
+    display: flex;      /* always visible */
+    flex-wrap: wrap;
     gap: 8px;
-    text-align: center;
-    padding: 12px 20px;
-    font-size: 0.8rem;
-  }
-
-  .footer-icons {
-    gap: 12px;
-  }
-
-  .table {
     width: 100%;
   }
 
-  form {
-    max-width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
-  }
-
-  .skills-grid {
-    grid-template-columns: repeat(2, 1fr);
+  #nav-links li a {
+    font-size: 0.85rem;
+    padding: 4px 0;
   }
 }
+
 
 /* ===== MOBILE ===== */
 @media (max-width: 480px) {
