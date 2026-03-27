@@ -17,6 +17,7 @@ body, html {
   height: 100%;
   z-index: -1;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .bg-animation span {
@@ -26,21 +27,22 @@ body, html {
   height: 300px;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.5;
+  opacity: 0.6;
   animation: float 25s infinite ease-in-out;
-  mix-blend-mode: multiply;
+  /* REMOVED mix-blend-mode: multiply — this was hiding them on light backgrounds */
 }
 
-.bg-animation span:nth-child(1) { background: #4facfe; top: 10%; left: 15%; }
-.bg-animation span:nth-child(2) { background: #00f2fe; top: 60%; left: 70%; }
-.bg-animation span:nth-child(3) { background: #a18cd1; top: 30%; left: 50%; }
-.bg-animation span:nth-child(4) { background: #fbc2eb; top: 75%; left: 20%; }
+.bg-animation span:nth-child(1) { background: #4facfe; top: 10%; left: 15%; animation-delay: 0s; }
+.bg-animation span:nth-child(2) { background: #00f2fe; top: 60%; left: 70%; animation-delay: 5s; }
+.bg-animation span:nth-child(3) { background: #a18cd1; top: 30%; left: 50%; animation-delay: 10s; }
+.bg-animation span:nth-child(4) { background: #fbc2eb; top: 75%; left: 20%; animation-delay: 15s; }
 
 @keyframes float {
   0%   { transform: translateY(0) scale(1); }
   50%  { transform: translateY(-120px) scale(1.2); }
   100% { transform: translateY(0) scale(1); }
 }
+
 
 /* ===== NAVBAR ===== */
 #navbar {
