@@ -612,3 +612,24 @@ body.loaded .progress.mysql      { width: 60%; }
   0%, 100% { box-shadow: 0 0 0px rgba(13,110,253,0.4); }
   50%       { box-shadow: 0 0 18px rgba(13,110,253,0.7); }
 }
+#box {
+  padding: 30px;
+  text-align: center;
+  background: #eee8aa;
+  border-radius: 30px;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+.buttons button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.table {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
