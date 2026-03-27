@@ -1,73 +1,63 @@
 body {
-margin:0;
-font-family: Arial;
-scroll-behavior: smooth;
+  margin: 0;
+  font-family: Arial;
+  scroll-behavior: smooth;
 }
 
-/* Navbar styles moved to #navbar block below */
-
-
-
-/* Sections */
 section {
-padding:50px;
-text-align:center;
+  padding: 50px;
+  text-align: center;
 }
 
-/* Projects */
 #github-projects {
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 .card {
-padding:20px;
-border-radius:10px;
-background:#f8f9fa;
-box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  padding: 20px;
+  border-radius: 10px;
+  background: #f8f9fa;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Form */
 form {
-display:flex;
-flex-direction:column;
-gap:15px;
-max-width:400px;
-margin:auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: auto;
 }
 
 input, textarea {
-padding:10px;
-border-radius:5px;
-border:1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 }
 
 button {
-padding:10px;
-background:#0d6efd;
-color:white;
-border:none;
-border-radius:5px;
-cursor:pointer;
+  padding: 10px;
+  background: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-/* Dark mode */
 .dark-mode {
-background:#121212;
-color:white;
+  background: #121212;
+  color: white;
 }
 
 .dark-mode nav {
-background:#1e1e1e;
-}
-dark-mode  {
-background:#1e1e1e;
+  background: #1e1e1e;
 }
 
 .dark-mode .card {
-background:#1e1e1e;
+  background: #1e1e1e;
 }
+
 .profile-pic {
   width: 180px;
   height: 180px;
@@ -83,10 +73,11 @@ background:#1e1e1e;
 .profile-pic:hover {
   transform: scale(1.05);
 }
+
 .portfolio-header {
   display: flex;
   flex-direction: column;
-  align-items: center;   /* centers horizontally */
+  align-items: center;
   justify-content: center;
 }
 
@@ -98,19 +89,25 @@ background:#1e1e1e;
 }
 
 body.loaded .progress.html { width: 90%; }
-body.loaded .progress.css { width: 85%; }
-body.loaded .progress.js { width: 80%; }
+body.loaded .progress.css  { width: 85%; }
+body.loaded .progress.js   { width: 80%; }
 
 footer {
-  background: #0d6efd;
+  background: #111;
   color: white;
-  padding: 20px;
+  padding: 15px 40px;
   text-align: center;
-  margin-top: 40px;
-}
-
-.footer-links {
-  margin-top: 10px;
+  margin-top: 80px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  z-index: 1000;
+  border-top: 1px solid #333;
 }
 
 .footer-links a {
@@ -123,51 +120,6 @@ footer {
 .footer-links a:hover {
   text-decoration: underline;
   opacity: 0.8;
-}
-.repo-btn {
-  background: #0d6efd;
-  transition: all 0.3s ease;
-}
-
-.repo-btn:hover {
-  background: #084298;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-.card {
-  padding: 20px;
-  border-radius: 10px;
-  background: #f8f9fa;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-/* Remove the comma that was here */
-body, html {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden; /* Prevents accidental side-scrolling */
-}
-
-footer {
-  position: fixed;     /* Locks it to the screen */
-  bottom: 0;           /* Sticks to the bottom */
-  left: 0;             /* Starts at the absolute left */
-  width: 100%;         /* Stretches to the absolute right */
-  
-  background-color: #111; /* Dark navbar color */
-  color: #fff;
-  display: flex;
-  justify-content: space-between; /* Space between text and icons */
-  align-items: center;
-  padding: 15px 40px;  /* Spacing inside the bar */
-  box-sizing: border-box; 
-  z-index: 1000;       /* Makes sure it stays on top of other content */
-  border-top: 1px solid #333; /* Optional: adds a thin line like a nav */
 }
 
 .footer-icons {
@@ -186,21 +138,24 @@ footer {
   color: #ff0303;
 }
 
-/* Make it look good on mobile */
-@media (max-width: 600px) {
-  footer {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-    padding: 20px;
-  }
+.repo-btn {
+  background: #0d6efd;
+  transition: all 0.3s ease;
 }
-/* Glass Cards */
+
+.repo-btn:hover {
+  background: #084298;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
 .card {
   backdrop-filter: blur(10px);
   background: rgba(255,255,255,0.6);
   border-radius: 15px;
   transition: all 0.3s ease;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
 .card:hover {
@@ -208,7 +163,6 @@ footer {
   box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
-/* Smooth buttons */
 button {
   transition: all 0.3s ease;
 }
@@ -216,31 +170,35 @@ button {
 button:hover {
   transform: scale(1.05);
 }
-/* Style for the paragraph containing the link */
+
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 p a {
-  color: #013bfc;          /* Initial color */
-  text-decoration: none;   /* Removes the default underline */
-  display: inline-block;   /* Allows the 'scale' transform to work */
-  transition: all 0.3s ease; /* Smoothly animates the changes below */
+  color: #013bfc;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
   font-weight: 500;
 }
 
-/* The Hover Effect */
 p a:hover {
-  color:  #ff0c0c;          /* Changes color to a nice yellow/gold */
-  transform: scale(1.1);   /* Makes the link 10% larger */
-  text-shadow: 0px 0px 8px rgba(255, 212, 59, 0.6); /* Adds a soft glow */
-  cursor: pointer;         /* Ensures the pointer hand appears */
+  color: #ff0c0c;
+  transform: scale(1.1);
+  text-shadow: 0px 0px 8px rgba(255, 212, 59, 0.6);
+  cursor: pointer;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background: #f4f7fb; /* light background */
+  background: #f4f7fb;
   overflow-x: hidden;
 }
 
-/* Background container */
 .bg-animation {
   position: fixed;
   top: 0;
@@ -251,7 +209,6 @@ body {
   overflow: hidden;
 }
 
-/* Blobs */
 .bg-animation span {
   position: absolute;
   display: block;
@@ -261,49 +218,21 @@ body {
   filter: blur(80px);
   opacity: 0.5;
   animation: float 25s infinite ease-in-out;
-}
-
-/* Different colors + positions */
-.bg-animation span:nth-child(1) {
-  background: #4facfe; /* blue */
-  top: 10%;
-  left: 15%;
-}
-
-.bg-animation span:nth-child(2) {
-  background: #00f2fe; /* cyan */
-  top: 60%;
-  left: 70%;
-}
-
-.bg-animation span:nth-child(3) {
-  background: #a18cd1; /* purple */
-  top: 30%;
-  left: 50%;
-}
-
-.bg-animation span:nth-child(4) {
-  background: #fbc2eb; /* pink */
-  top: 75%;
-  left: 20%;
-}
-
-/* Animation */
-@keyframes float {
-  0% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-120px) scale(1.2);
-  }
-  100% {
-    transform: translateY(0) scale(1);
-  }
-}
-.bg-animation span {
   mix-blend-mode: multiply;
 }
-/* ===== NAVBAR STYLES (shared across all pages) ===== */
+
+.bg-animation span:nth-child(1) { background: #4facfe; top: 10%; left: 15%; }
+.bg-animation span:nth-child(2) { background: #00f2fe; top: 60%; left: 70%; }
+.bg-animation span:nth-child(3) { background: #a18cd1; top: 30%; left: 50%; }
+.bg-animation span:nth-child(4) { background: #fbc2eb; top: 75%; left: 20%; }
+
+@keyframes float {
+  0%   { transform: translateY(0) scale(1); }
+  50%  { transform: translateY(-120px) scale(1.2); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+/* ===== NAVBAR ===== */
 #navbar {
   background-color: #0d6efd;
   padding: 15px 30px;
@@ -355,6 +284,13 @@ body {
   border-bottom: 2px solid white;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
 #theme-toggle {
   background: rgba(255,255,255,0.15);
   border: 2px solid rgba(255,255,255,0.4);
@@ -372,7 +308,39 @@ body {
   transform: scale(1.05);
 }
 
-/* ===== GitHub Project Cards ===== */
+/* ===== HAMBURGER ===== */
+#hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+#hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+#hamburger.active span:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+#hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+#hamburger.active span:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* ===== GITHUB CARDS ===== */
 #github-projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -486,7 +454,6 @@ body {
   margin-bottom: 30px;
 }
 
-/* Progress bars */
 .skills-bars {
   max-width: 650px;
   margin: 0 auto 50px;
@@ -495,9 +462,7 @@ body {
   gap: 18px;
 }
 
-.skill-item {
-  text-align: left;
-}
+.skill-item { text-align: left; }
 
 .skill-label {
   display: flex;
@@ -523,15 +488,13 @@ body {
   transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Trigger on load */
-body.loaded .progress.html       { width: 90%; }
-body.loaded .progress.css        { width: 85%; }
-body.loaded .progress.js         { width: 80%; }
-body.loaded .progress.bootstrap  { width: 75%; }
-body.loaded .progress.nodejs     { width: 65%; }
-body.loaded .progress.mysql      { width: 60%; }
+body.loaded .progress.html      { width: 90%; }
+body.loaded .progress.css       { width: 85%; }
+body.loaded .progress.js        { width: 80%; }
+body.loaded .progress.bootstrap { width: 75%; }
+body.loaded .progress.nodejs    { width: 65%; }
+body.loaded .progress.mysql     { width: 60%; }
 
-/* Skill badge cards */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -555,9 +518,7 @@ body.loaded .progress.mysql      { width: 60%; }
   box-shadow: 0 12px 28px rgba(13,110,253,0.2);
 }
 
-.skill-badge img {
-  transition: transform 0.3s ease;
-}
+.skill-badge img { transition: transform 0.3s ease; }
 
 .skill-badge:hover img {
   transform: rotate(-5deg) scale(1.1);
@@ -570,7 +531,6 @@ body.loaded .progress.mysql      { width: 60%; }
   color: #333;
 }
 
-/* Dark mode adjustments */
 .dark-mode .about-card,
 .dark-mode .skill-badge {
   background: rgba(40,40,40,0.8);
@@ -579,13 +539,9 @@ body.loaded .progress.mysql      { width: 60%; }
 
 .dark-mode .about-card p,
 .dark-mode .skill-badge p,
-.dark-mode .skill-label {
-  color: #ddd;
-}
+.dark-mode .skill-label { color: #ddd; }
 
-.dark-mode .skill-track {
-  background: #444;
-}
+.dark-mode .skill-track { background: #444; }
 
 /* ===== CSS DEMO PAGE ===== */
 .styled-text {
@@ -604,14 +560,13 @@ body.loaded .progress.mysql      { width: 60%; }
   transition: transform 0.3s ease;
 }
 
-.styled-text:hover {
-  transform: scale(1.08);
-}
+.styled-text:hover { transform: scale(1.08); }
 
 @keyframes pulse-border {
   0%, 100% { box-shadow: 0 0 0px rgba(13,110,253,0.4); }
   50%       { box-shadow: 0 0 18px rgba(13,110,253,0.7); }
 }
+
 #box {
   padding: 30px;
   text-align: center;
@@ -628,8 +583,139 @@ body.loaded .progress.mysql      { width: 60%; }
   border-radius: 6px;
   cursor: pointer;
 }
+
 .table {
   margin-left: auto;
   margin-right: auto;
   width: 60%;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+@media (max-width: 768px) {
+
+  #hamburger {
+    display: flex;
+  }
+
+  #navbar ul {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #0d6efd;
+    padding: 10px 0;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  }
+
+  #navbar ul.open {
+    display: flex;
+  }
+
+  #navbar ul li a {
+    display: block;
+    padding: 12px 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+
+  #navbar ul li:last-child a {
+    border-bottom: none;
+  }
+
+  #navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+  }
+
+  .portfolio-header h1 {
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 0 20px;
+    line-height: 1.5;
+  }
+
+  .profile-pic {
+    width: 130px;
+    height: 130px;
+  }
+
+  section {
+    padding: 30px 20px;
+  }
+
+  .about-section {
+    padding: 30px 20px 20px;
+  }
+
+  .about-card {
+    padding: 20px;
+  }
+
+  .skills-section {
+    padding: 20px 20px 100px;
+  }
+
+  #github-projects {
+    grid-template-columns: 1fr;
+    padding: 10px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 0.8rem;
+  }
+
+  .footer-icons {
+    gap: 12px;
+  }
+
+  .table {
+    width: 100%;
+  }
+
+  form {
+    max-width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .portfolio-header h1 {
+    font-size: 1.15rem;
+  }
+
+  .profile-pic {
+    width: 110px;
+    height: 110px;
+  }
+
+  .styled-text {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-logo {
+    font-size: 0.72rem;
+    line-height: 1.5;
+  }
+
+  #theme-toggle {
+    padding: 5px 10px;
+    font-size: 1rem;
+  }
 }
