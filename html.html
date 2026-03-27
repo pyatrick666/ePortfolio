@@ -38,9 +38,24 @@
             HTML is widely used for static websites, web forms, landing pages, and as a foundation for dynamic applications when paired with JavaScript. Its versatility makes it indispensable in web development.
             
         </p>
-        
+        <h3>How HTML Works</h3>
+        <p>
+            HTML uses tags wrapped in angle brackets to label content. Most tags come in pairs: an opening tag marks where something starts and a closing tag (with a forward slash) marks where it ends.
+            The opening tag, the content, and the closing tag together form an element.
+            Some elements are self-closing because they have no content to wrap — &lt;img&gt; just points to a file, &lt;br&gt; just creates a line break.
+        </p>
+        <p>
+            Attributes give extra information to a tag, written inside the opening tag as name="value" pairs.
+            A link without href has nowhere to go. An image without src has no file to display.
+            An image without alt is invisible to screen readers. Attributes turn a generic tag into something specific and meaningful.
+        </p>
+        <p>
+         Nesting means placing elements inside other elements.
+         A list element &lt;ul&gt; contains list items &lt;li&gt;.
+          A navigation section &lt;nav&gt; contains links &lt;a&gt;.
+        This nesting builds a tree structure called the DOM (Document Object Model) that JavaScript can later access and modify.</p>
+        <p>HTML5 introduced semantic elements whose names describe their purpose: &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;article&gt;, &lt;section&gt;, &lt;aside&gt;, &lt;footer&gt;. Using these instead of generic &lt;div&gt; tags makes code easier to read, improves accessibility for screen readers, and helps search engines understand the page structure.</p>
         <h3>Code Example</h3>
-        
         <pre><code>
             &lt;!DOCTYPE html&gt;
             &lt;html&gt;
@@ -56,6 +71,14 @@
         <h3>Live Demo</h3>
         
         <div class="demo-box">
+          <h1>Hello World</h1>
+          <p>This is a paragraph</p>
+        </div>
+        
+        
+        <h3>Live Demo</h3>
+        
+        <div class="demo-box">
             <h1>This is a Heading</h1>
             <p>This is a paragraph created using HTML.</p>
         </div>
@@ -65,11 +88,12 @@
     <a href="2_CETHTML_Pratikpoudel.pdf" download>
       <button>Download ProjectReport</button>
     </a>
+    <p><a href="https://www.w3schools.com/html/default.asp" target="_blank">Learn More</a></p>
   </div>
 </section>
 
 <footer>
-  <div class="footer-logo">© 2026 Pratik Poudel ePortfolio</div>
+  <div class="footer-logo">© 2026 Pratik Poudel ·  bj03gj  (240833161)  ·  BSc.IT  ·  ISMT College  ·  CET138 Full Stack Development</div>
   <div class="footer-icons">
     <a href="https://github.com/pyatrick666" target="_blank"><i class="fab fa-github"></i></a>
     <a href="mailto:pyatrick666@gmail.com"><i class="fas fa-envelope"></i></a>
