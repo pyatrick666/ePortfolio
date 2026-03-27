@@ -321,24 +321,6 @@ body {
   padding: 0;
 }
 
-#hamburger span {
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: white;
-  border-radius: 3px;
-  transition: all 0.3s ease;
-}
-
-#hamburger.active span:nth-child(1) {
-  transform: translateY(8.5px) rotate(45deg);
-}
-#hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-#hamburger.active span:nth-child(3) {
-  transform: translateY(-8.5px) rotate(-45deg);
-}
 
 /* ===== GITHUB CARDS ===== */
 #github-projects {
@@ -596,9 +578,7 @@ body.loaded .progress.mysql     { width: 60%; }
 
 @media (max-width: 768px) {
 
-  #hamburger {
-    display: flex;
-  }
+
 
   #navbar ul {
     display: none;
@@ -771,3 +751,21 @@ body.loaded .progress.mysql     { width: 60%; }
       height: 40px;
     }
   }
+  #nav-links {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 8px;
+}
+
+#navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
