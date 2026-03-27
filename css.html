@@ -28,7 +28,7 @@
 </nav>
 
 <section>
-<h2>CSS Demo</h2>
+<h2>CSS — Cascading Style Sheets</h2>
 <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" width="100">
     <p>
       CSS is used to style HTML elements, including colors, layouts, spacing, and responsiveness.CSS is a stylesheet language that controls the visual presentation of HTML elements, defining properties such as colors, fonts, layouts, and animations through selectors.
@@ -36,6 +36,53 @@
       CSS is widely used for responsive designs, theme switching (e.g., dark/light modes), animations to improve user experience, and complex layouts with CSS Grid or Flexbox. Its versatility makes it essential for modern web development (Meyer, 2016).
       
     </p>
+    <p>
+CSS stands for Cascading Style Sheets. It is a separate language from HTML that exists purely to describe how content looks.
+The principle behind this separation is important: HTML defines the structure, CSS defines the appearance.
+If CSS and HTML were mixed together, changing the design of a 50-page website would mean editing every single page. With CSS in a separate file, you change one file and every page updates.
+    </p>
+    <p> 
+The word "cascading" describes how conflicts are resolved.
+Multiple CSS rules can target the same element. CSS uses a system called specificity to decide which rule wins: more specific selectors override less specific ones, and later rules override earlier ones at the same specificity.
+Understanding this cascade is essential to writing CSS that behaves predictably.
+    </p>
+    <h2> How CSS Works?</h2>
+      <p>
+Every CSS rule has two parts: a selector that identifies which HTML elements to target, and a set of declarations that say what to change and what to change it to.
+A selector can target by element type (p), by class (.card), by ID (#header), by relationship (.nav a), or by state (button:hover).
+This targeting system is what makes CSS both powerful and precise.
+      </p>
+      <p>
+CSS also controls layout. Flexbox makes it easy to align items horizontally or vertically.
+Grid creates two-dimensional layouts.
+Media queries apply different styles based on screen width, which is how one stylesheet serves both desktop and mobile without separate HTML files.
+      </p>
+
+    <h2> Three Ways to Add CSS</h2>
+    
+      <p>
+There are three methods for applying CSS to an HTML page. Each one works differently and suits different situations.
+Knowing which to use — and when — is an important part of writing clean, maintainable code.
+      </p>
+
+    <h2>1. Inline CSS</h2>
+
+      <p>
+Inline CSS is written directly on an HTML element using the style attribute: &lt;p style="color: red;"&gt;. It only affects that one element and overrides all other CSS rules.
+  While it works, it is considered bad practice because the same style has to be repeated on every element individually, making the code very hard to maintain and update.
+      </p>
+    <h2> 2. Internal CSS</h2>
+      <p>
+Internal CSS is written inside a &lt;style&gt; block placed in the &lt;head&gt; of the HTML file.
+It applies only to the page it is written in. This is better than inline because you can write one rule that targets many elements at once.
+It is suitable for small single-page projects or quick prototypes, but styles cannot be shared across multiple pages.
+      </p>
+    <h2>3. External CSS</h2>
+      <p>
+External CSS is written in a separate .css file and linked to the HTML using a &lt;link&gt; tag in the &lt;head&gt;.
+This is the most common and recommended method for larger projects because it keeps content and presentation separate, allows styles to be reused across multiple pages, and makes maintenance easier.
+      </p>
+    
     
     <h3>Code Example</h3>
     
@@ -52,16 +99,41 @@
       <p style="color:blue; font-weight:bold;">
       This paragraph is styled using CSS.
     </p>
+    <div class="card">
+  <div id="box">This box responds to CSS</div>
+
+  <div class="buttons">
+    <button onclick="setStyle('color','red')">Red text</button>
+    <button onclick="setStyle('backgroundColor','yellow')">Yellow background</button>
+    <button onclick="setStyle('borderRadius','50px')">Pill shape</button>
+    <button onclick="setStyle('fontSize','24px')">Larger font</button>
+    <button onclick="setStyle('border','2px solid black')">Add border</button>
+    <button onclick="setStyle('letterSpacing','3px')">Spaced letters</button>
+    <button onclick="resetStyle()">Reset</button>
+    <script>
+const box = document.getElementById("box");
+
+function setStyle(property, value) {
+  box.style[property] = value;
+}
+
+function resetStyle() {
+  box.style = "";
+}
+</script>
+  </div>
+</div>
   </div>
         <div>
     <a href="5_css_pratikpoudel.pdf" download>
       <button>Download ProjectReport</button>
     </a>
+    <p><a href="https://www.w3schools.com/css/default.asp" target="_blank">Learn More</a></p>
   </div>
 </section>
 
 <footer>
-  <div class="footer-logo">© 2026 Pratik Poudel ePortfolio</div>
+  <div class="footer-logo">© 2026 Pratik Poudel ·  bj03gj  (240833161)  ·  BSc.IT  ·  ISMT College  ·  CET138 Full Stack Development</div>
   <div class="footer-icons">
     <a href="https://github.com/pyatrick666" target="_blank"><i class="fab fa-github"></i></a>
     <a href="mailto:pyatrick666@gmail.com"><i class="fas fa-envelope"></i></a>
