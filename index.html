@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -18,100 +17,75 @@
       <span></span>
     </div>
 
-```
-<nav id="navbar">
-  <ul id="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="fullstack.html">Full Stack</a></li>
-    <li><a href="html.html">HTML</a></li>
-    <li><a href="css.html">CSS</a></li>
-    <li><a href="bootstrap.html">Bootstrap</a></li>
-    <li><a href="javascript.html">JavaScript</a></li>
-  </ul>
-  <div class="nav-right">
-    <button id="theme-toggle">🌙</button>
-  </div>
-</nav>
+    <nav id="navbar">
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="fullstack.html">Full Stack</a></li>
+        <li><a href="html.html">HTML</a></li>
+        <li><a href="css.html">CSS</a></li>
+        <li><a href="bootstrap.html">Bootstrap</a></li>
+        <li><a href="javascript.html">JavaScript</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="theme-toggle">🌙</button>
+      </div>
+    </nav>
 
+    <header class="portfolio-header">
+      <h1>
+        <img src="profile.jpg" alt="Profile" class="profile-pic">
+        Hi, I'm Pratik Poudel
+        and i'm currently learning
+        <b id="typing-text"></b>
+      </h1>
 
-<header class="portfolio-header">
+      <p>
+        <a href="https://github.com/pyatrick666" target="_blank">
+          github.com/pyatrick666
+        </a>
+      </p>
 
-  <h1>
-    <img src="profile.jpg" alt="Profile" class="profile-pic">
-    Hi, I'm Pratik Poudel
-    and i'm currently learning
-    <b id="typing-text"></b>
-  </h1>
+      <div class="resume-section">
+        <a href="resume.pdf" download>
+          <button>Download Resume</button>
+        </a>
+      </div>
 
-  <p>
-    <a href="https://github.com/pyatrick666" target="_blank">
-      github.com/pyatrick666
-    </a>
-  </p>
+      <section id="about.html">
+        <h2>What This Portfolio Covers?</h2>
+        <p>
+          This ePortfolio covers five core front-end web technologies as part of Assignment 1 for CET138 Full Stack Development. Each section includes an explanation and working examples.
+        </p>
+      </section>
+    </header>
 
-  <div class="resume-section">
-    <a href="resume.pdf" download>
-      <button>Download Resume</button>
-    </a>
-  </div>
+    <section>
+      <h3>My GitHub Projects</h3>
+      <div id="github-projects"></div>
+    </section>
 
-  <!-- ABOUT -->
-  <section id="about.html">
-    <h2>What This Portfolio Covers?</h2>
-    <p>
-      This ePortfolio covers five core front-end web technologies as part of Assignment 1 for CET138 Full Stack Development. Each section includes an explanation and working examples.
-    </p>
-  </section>
-</header>
-
-<!-- GitHub Projects -->
-<section>
-  <h3>My GitHub Projects</h3>
-  <div id="github-projects"></div>
-</section>
-
-<script src="script.js"></script>
-
-<footer>
-  <div class="footer-logo">
-    © 2026 Pratik Poudel · bj03gj (240833161) · BSc.IT · ISMT College · CET138 Full Stack Development
-  </div>
-  <div class="footer-icons">
-    <a href="https://github.com/pyatrick666" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:pyatrick666@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.linkedin.com/in/pratik-poudel-b3264a263/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://www.instagram.com/em_ev0l/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/emev0l" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.youtube.com/@999eMEvol" target="_blank"><i class="fab fa-youtube"></i></a>
-  </div>
-</footer>
-```
+    <footer>
+      <div class="footer-logo">
+        © 2026 Pratik Poudel · bj03gj (240833161) · BSc.IT · ISMT College · CET138 Full Stack Development
+      </div>
+      <div class="footer-icons">
+        <a href="https://github.com/pyatrick666" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="mailto:pyatrick666@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/pratik-poudel-b3264a263/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/em_ev0l/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/emev0l" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.youtube.com/@999eMEvol" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+    </footer>
 
   </div><!-- end .container -->
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="script.js"></script>
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("loaded");
-
-      // Hamburger toggle
-      const hamburger = document.getElementById("hamburger");
-      const navLinks = document.getElementById("nav-links");
-
-      hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-        hamburger.classList.toggle("active");
-      });
-
-      // Close menu when a nav link is clicked
-      navLinks.querySelectorAll("a").forEach(link => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("open");
-          hamburger.classList.remove("active");
-        });
-      });
 
       // Page transition links
       const links = document.querySelectorAll("a");
