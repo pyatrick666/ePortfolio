@@ -111,6 +111,80 @@
       <p>MySQL</p>
     </div>
   </div> skills-grid -->
+  <style>
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    width: 100%;
+  }
+
+  .skill-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 8px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+
+  .skill-badge img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 8px;
+  }
+
+  .skill-badge p {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  /* Tablet: 2 columns */
+  @media (max-width: 768px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Mobile: 2 columns still, but smaller */
+  @media (max-width: 480px) {
+    .skills-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .skill-badge img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+</style>
+
+<div class="skills-grid">
+  <div class="skill-badge">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML5">
+    <p>HTML5</p>
+  </div>
+  <div class="skill-badge">
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS3">
+    <p>CSS3</p>
+  </div>
+  <div class="skill-badge">
+    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript">
+    <p>JavaScript</p>
+  </div>
+  <div class="skill-badge">
+    <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap">
+    <p>Bootstrap</p>
+  </div>
+</div>
+
   
 </section>
 
