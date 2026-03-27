@@ -1,0 +1,614 @@
+body {
+margin:0;
+font-family: Arial;
+scroll-behavior: smooth;
+}
+
+/* Navbar styles moved to #navbar block below */
+
+
+
+/* Sections */
+section {
+padding:50px;
+text-align:center;
+}
+
+/* Projects */
+#github-projects {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card {
+padding:20px;
+border-radius:10px;
+background:#f8f9fa;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Form */
+form {
+display:flex;
+flex-direction:column;
+gap:15px;
+max-width:400px;
+margin:auto;
+}
+
+input, textarea {
+padding:10px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+button {
+padding:10px;
+background:#0d6efd;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+}
+
+/* Dark mode */
+.dark-mode {
+background:#121212;
+color:white;
+}
+
+.dark-mode nav {
+background:#1e1e1e;
+}
+dark-mode  {
+background:#1e1e1e;
+}
+
+.dark-mode .card {
+background:#1e1e1e;
+}
+.profile-pic {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 20px auto;
+  border: 4px solid white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}
+.portfolio-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   /* centers horizontally */
+  justify-content: center;
+}
+
+.progress {
+  width: 0;
+  height: 20px;
+  background: #0d6efd;
+  transition: width 2s;
+}
+
+body.loaded .progress.html { width: 90%; }
+body.loaded .progress.css { width: 85%; }
+body.loaded .progress.js { width: 80%; }
+
+footer {
+  background: #0d6efd;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+.repo-btn {
+  background: #0d6efd;
+  transition: all 0.3s ease;
+}
+
+.repo-btn:hover {
+  background: #084298;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.card {
+  padding: 20px;
+  border-radius: 10px;
+  background: #f8f9fa;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+/* Remove the comma that was here */
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevents accidental side-scrolling */
+}
+
+footer {
+  position: fixed;     /* Locks it to the screen */
+  bottom: 0;           /* Sticks to the bottom */
+  left: 0;             /* Starts at the absolute left */
+  width: 100%;         /* Stretches to the absolute right */
+  
+  background-color: #111; /* Dark navbar color */
+  color: #fff;
+  display: flex;
+  justify-content: space-between; /* Space between text and icons */
+  align-items: center;
+  padding: 15px 40px;  /* Spacing inside the bar */
+  box-sizing: border-box; 
+  z-index: 1000;       /* Makes sure it stays on top of other content */
+  border-top: 1px solid #333; /* Optional: adds a thin line like a nav */
+}
+
+.footer-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.footer-icons a {
+  color: rgb(25, 145, 250);
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-icons a:hover {
+  color: #ff0303;
+}
+
+/* Make it look good on mobile */
+@media (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 20px;
+  }
+}
+/* Glass Cards */
+.card {
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.6);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+/* Smooth buttons */
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+/* Style for the paragraph containing the link */
+p a {
+  color: #013bfc;          /* Initial color */
+  text-decoration: none;   /* Removes the default underline */
+  display: inline-block;   /* Allows the 'scale' transform to work */
+  transition: all 0.3s ease; /* Smoothly animates the changes below */
+  font-weight: 500;
+}
+
+/* The Hover Effect */
+p a:hover {
+  color:  #ff0c0c;          /* Changes color to a nice yellow/gold */
+  transform: scale(1.1);   /* Makes the link 10% larger */
+  text-shadow: 0px 0px 8px rgba(255, 212, 59, 0.6); /* Adds a soft glow */
+  cursor: pointer;         /* Ensures the pointer hand appears */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #f4f7fb; /* light background */
+  overflow-x: hidden;
+}
+
+/* Background container */
+.bg-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Blobs */
+.bg-animation span {
+  position: absolute;
+  display: block;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: float 25s infinite ease-in-out;
+}
+
+/* Different colors + positions */
+.bg-animation span:nth-child(1) {
+  background: #4facfe; /* blue */
+  top: 10%;
+  left: 15%;
+}
+
+.bg-animation span:nth-child(2) {
+  background: #00f2fe; /* cyan */
+  top: 60%;
+  left: 70%;
+}
+
+.bg-animation span:nth-child(3) {
+  background: #a18cd1; /* purple */
+  top: 30%;
+  left: 50%;
+}
+
+.bg-animation span:nth-child(4) {
+  background: #fbc2eb; /* pink */
+  top: 75%;
+  left: 20%;
+}
+
+/* Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-120px) scale(1.2);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+.bg-animation span {
+  mix-blend-mode: multiply;
+}
+/* ===== NAVBAR STYLES (shared across all pages) ===== */
+#navbar {
+  background-color: #0d6efd;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+#navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+#navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+#navbar ul li a:hover {
+  color: #000000;
+  transform: scale(1.1);
+}
+
+#navbar ul li a::after {
+  content: '';
+  display: block;
+  height: 2px;
+  width: 0;
+  background: #000000;
+  transition: width 0.3s;
+}
+
+#navbar ul li a:hover::after {
+  width: 100%;
+}
+
+#navbar ul li a.active {
+  border-bottom: 2px solid white;
+}
+
+#theme-toggle {
+  background: rgba(255,255,255,0.15);
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 50px;
+  padding: 5px 14px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+#theme-toggle:hover {
+  background: rgba(255,255,255,0.3);
+  transform: scale(1.05);
+}
+
+/* ===== GitHub Project Cards ===== */
+#github-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.project-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+}
+
+.project-card h3 {
+  margin: 0 0 8px;
+  color: #0d6efd;
+}
+
+.project-card p {
+  font-size: 0.9rem;
+  color: #444;
+  margin: 0 0 12px;
+}
+
+.repo-meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.language-badge {
+  background: #0d6efd;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+}
+
+/* ===== ABOUT PAGE ===== */
+.about-section {
+  padding: 60px 40px 30px;
+  text-align: center;
+}
+
+.about-card {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 30px 40px;
+  max-width: 650px;
+  margin: 20px auto;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+}
+
+.about-card p {
+  font-size: 1.05rem;
+  color: #333;
+  line-height: 1.7;
+  margin: 15px 0;
+}
+
+.about-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.about-links a {
+  background: #0d6efd;
+  color: white !important;
+  padding: 8px 18px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.about-links a:hover {
+  background: #084298;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(13,110,253,0.35);
+  color: white !important;
+  text-shadow: none;
+}
+
+/* ===== SKILLS SECTION ===== */
+.skills-section {
+  padding: 20px 40px 100px;
+  text-align: center;
+}
+
+.skills-section h2 {
+  margin-bottom: 30px;
+}
+
+/* Progress bars */
+.skills-bars {
+  max-width: 650px;
+  margin: 0 auto 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.skill-item {
+  text-align: left;
+}
+
+.skill-label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.skill-track {
+  background: #e0e0e0;
+  border-radius: 50px;
+  height: 14px;
+  overflow: hidden;
+}
+
+.progress {
+  width: 0;
+  height: 14px;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #0d6efd, #00c6ff);
+  transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Trigger on load */
+body.loaded .progress.html       { width: 90%; }
+body.loaded .progress.css        { width: 85%; }
+body.loaded .progress.js         { width: 80%; }
+body.loaded .progress.bootstrap  { width: 75%; }
+body.loaded .progress.nodejs     { width: 65%; }
+body.loaded .progress.mysql      { width: 60%; }
+
+/* Skill badge cards */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.skill-badge {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 20px 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skill-badge:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(13,110,253,0.2);
+}
+
+.skill-badge img {
+  transition: transform 0.3s ease;
+}
+
+.skill-badge:hover img {
+  transform: rotate(-5deg) scale(1.1);
+}
+
+.skill-badge p {
+  margin: 10px 0 0;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Dark mode adjustments */
+.dark-mode .about-card,
+.dark-mode .skill-badge {
+  background: rgba(40,40,40,0.8);
+  color: white;
+}
+
+.dark-mode .about-card p,
+.dark-mode .skill-badge p,
+.dark-mode .skill-label {
+  color: #ddd;
+}
+
+.dark-mode .skill-track {
+  background: #444;
+}
+
+/* ===== CSS DEMO PAGE ===== */
+.styled-text {
+  font-size: 1.4rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #0d6efd, #a18cd1, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #0d6efd;
+  border-radius: 10px;
+  letter-spacing: 2px;
+  animation: pulse-border 2s infinite ease-in-out;
+  transition: transform 0.3s ease;
+}
+
+.styled-text:hover {
+  transform: scale(1.08);
+}
+
+@keyframes pulse-border {
+  0%, 100% { box-shadow: 0 0 0px rgba(13,110,253,0.4); }
+  50%       { box-shadow: 0 0 18px rgba(13,110,253,0.7); }
+}
