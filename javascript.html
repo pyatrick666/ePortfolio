@@ -33,22 +33,33 @@
 <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" width="120">
 
      <p>
-            JavaScript is used to make websites interactive, such as handling events, forms, and dynamic content. 
-            JavaScript is an interpreted language that enables interactivity through Document
-            Object Model (DOM) manipulation, event handling, and asynchronous operations like
-            API calls. Modern JavaScript (ES6 and beyond) introduces features
-            such as arrow functions, promises, async/await, modules, destructuring, and classes,
-            enhancing code readability and modularity. The proposed ES2025 standard includes
-            the Temporal API for date/time handling and pattern matching for advanced logic.
-            JavaScript is used for dynamic user interfaces, single-page applications (SPAs) with
-            frameworks like React or Vue, server-side applications via Node.js, and cross
-            platform apps using React Native or Electron, making it a cornerstone of modern
-            development. JavaScript is used to make websites interactive, such as handling events, forms, and dynamic content.
+JavaScript is used to make websites interactive, such as handling events, forms, and dynamic content.
+JavaScript is an interpreted language that enables interactivity through Document Object Model (DOM) manipulation, event handling, and asynchronous operations like API calls.
+Modern JavaScript (ES6 and beyond) introduces features such as arrow functions, promises, async/await, modules, destructuring, and classes, enhancing code readability and modularity.
+The proposed ES2025 standard includes the Temporal API for date/time handling and pattern matching for advanced logic. JavaScript is used for dynamic user interfaces, single-page applications (SPAs) with frameworks like React or Vue, server-side applications via Node.js, and cross platform apps using React Native or Electron, making it a cornerstone of modern development.
+JavaScript is used to make websites interactive, such as handling events, forms, and dynamic content.
+
         </p>
         
+<h2>How JavaScript Works?</h2>
+<p>When a browser loads an HTML page, it creates a DOM (Document Object Model) — a tree of every HTML element as JavaScript objects.
+  JavaScript accesses this tree through the document object, finds any element it needs, and can read or change it instantly without reloading the page.
+  This is called DOM manipulation and is the foundation of all browser interactivity.
 
+</p>
         
+<p>JavaScript also operates on an event-driven model. Rather than running once and stopping, JavaScript sets up listeners that wait for things to happen — a click, a keypress, a form submission, a timer. When the event fires, the associated function runs.
+  This is why pages feel responsive and alive: the code is always listening, always ready to react.</p>
 
+  <h2>Core Concepts</h2>
+  <p>JavaScript has a few core concepts that are essential to understand:
+    <ul>
+      <li><strong>Variables:</strong> Containers for storing data values, declared with var, let, or const.</li>
+      <li><strong>Functions:</strong> Reusable blocks of code that perform a specific task, defined with the function keyword or as arrow functions.</li>
+      <li><strong>Objects:</strong> Collections of key-value pairs that can represent complex data structures.</li>
+      <li><strong>Arrays:</strong> Ordered lists of values that can hold any type of data.</li>
+      <li><strong>Asynchronous Programming:</strong> Handling operations that take time (like fetching data) without blocking the main thread, using callbacks, promises, or async/await.</li>
+    </ul>
 <h3>Code Example</h3>
 <pre><code>
 function showPopup() {
@@ -61,6 +72,33 @@ function showPopup() {
 <input type="text" id="popup-input" placeholder="Type something">
 <button onclick="showPopup()">Submit</button>
 <p>This example shows how JavaScript interacts with user input.</p>
+<div class="card">
+  <h3>Write a short bio (max 150 characters):</h3>
+
+  <textarea id="bioInput" placeholder="Start typing..."></textarea>
+
+  <p>
+    Characters used:
+    <span id="charCount">0</span> / 150
+  </p>
+</div>
+<script>
+const textarea = document.getElementById("bioInput");
+const counter = document.getElementById("charCount");
+
+textarea.addEventListener("input", function () {
+  let length = textarea.value.length;
+  counter.textContent = length;
+
+  if (length < 100) {
+    counter.style.color = "green";
+  } else if (length <= 130) {
+    counter.style.color = "orange";
+  } else {
+    counter.style.color = "red";
+  }
+});
+</script>
 <div>
   <a href="1_javascript­Pratikpoudel.pdf" download>
     <button>Download ProjectReport</button>
@@ -70,13 +108,17 @@ function showPopup() {
 </section>
 
 <footer>
-  <div class="footer-logo">© 2026 Pratik Poudel ePortfolio</div>
+  <div class="footer-logo">© 2026 Pratik Poudel ·  bj03gj  (240833161)  ·  BSc.IT  ·  ISMT College  ·  CET138 Full Stack Development</div>
   <div class="footer-icons">
     <a href="https://github.com/pyatrick666" target="_blank"><i class="fab fa-github"></i></a>
     <a href="mailto:pyatrick666@gmail.com"><i class="fas fa-envelope"></i></a>
     <a href="https://www.linkedin.com/in/pratik-poudel-b3264a263/" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="https://www.instagram.com/em_ev0l/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/evolthrottle" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.youtube.com/@999eMEvol" target="_blank"><i class="fab fa-youtube"></i></a>
   </div>
 </footer>
+</div>
 </div>
 <script src="script.js"></script>
 </body>
