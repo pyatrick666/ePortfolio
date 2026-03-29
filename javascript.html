@@ -29,7 +29,6 @@
   </div>
 </nav>
 
-
 <section>
   
 <h2>JavaScript</h2>
@@ -63,27 +62,51 @@ JavaScript is used to make websites interactive, such as handling events, forms,
       <li><strong>Arrays:</strong> Ordered lists of values that can hold any type of data.</li>
       <li><strong>Asynchronous Programming:</strong> Handling operations that take time (like fetching data) without blocking the main thread, using callbacks, promises, or async/await.</li>
     </ul>
-<h3>Code Example</h3>
-<pre><code>
-function showPopup() {
-  let input = document.getElementById("popup-input").value;
-  alert("You entered: " + input);
-}
-</code></pre>
+<h3>Code Example — JavaScript Popup</h3>
 
-<h3>Live Demo</h3>
-<input type="text" id="popup-input" placeholder="Type something">
-<button onclick="showPopup()">Submit</button>
+<div style="background:#1a1d27; border-radius:10px 10px 0 0; padding:1.25rem 1.5rem; font-family:monospace; font-size:13.5px; line-height:2;">
+  <div><span style="color:#60a5fa;">function </span><span style="color:#fbbf24;">showPopup</span><span style="color:#e8e6e1;">() {</span></div>
+  <div style="margin-left:1.5rem;"><span style="color:#60a5fa;">let </span><span style="color:#e8e6e1;">input = </span><span style="color:#fbbf24;">document</span><span style="color:#e8e6e1;">.</span><span style="color:#4ade80;">getElementById</span><span style="color:#e8e6e1;">(</span><span style="color:#f87171;">"popup-input"</span><span style="color:#e8e6e1;">).</span><span style="color:#4ade80;">value</span><span style="color:#e8e6e1;">;</span></div>
+  <div style="margin-left:1.5rem;"><span style="color:#fbbf24;">alert</span><span style="color:#e8e6e1;">(</span><span style="color:#f87171;">"You entered: "</span><span style="color:#e8e6e1;"> + input);</span></div>
+  <div><span style="color:#e8e6e1;">}</span></div>
+</div>
+
+<div style="background:#13151e; border-radius:0 0 10px 10px; border-top:1px solid #2a2d3a; padding:0.75rem 1.5rem;">
+  <span style="font-size:11px; color:#4a4f62; font-family:monospace; letter-spacing:0.05em;">Demo1</span>
+  <div style="display:flex; gap:10px; margin-top:8px; flex-wrap:wrap; align-items:center;">
+    <input id="popup-input" type="text" placeholder="Type something..."
+      style="background:#0d0f14; border:1px solid #1e2330; border-radius:8px; padding:0.5rem 0.9rem; color:#e8e6e1; font-size:13.5px; font-family:monospace; outline:none; width:220px;">
+    <button onclick="showPopup()"
+      style="background:#fbbf24; color:#0d0f14; border:none; border-radius:8px; padding:0.5rem 1.2rem; font-size:13.5px; font-weight:600; cursor:pointer;">
+      Run ▶
+    </button>
+  </div>
+</div>
+<div style="background:#13151e; border-radius:0 0 10px 10px; border-top:1px solid #2a2d3a; padding:1rem 1.5rem;">
+  <span style="font-size:11px; color:#4a4f62; font-family:monospace; letter-spacing:0.05em;">Demo2</span>
+  <div style="margin-top:10px;">
+    <p style="color:#e8e6e1; font-size:13.5px; margin:0 0 8px;">Write a short bio (max 150 characters):</p>
+    <textarea id="bioInput" maxlength="150" placeholder="Start typing..."
+      oninput="updateCount()"
+      style="width:100%; background:#0d0f14; border:1px solid #1e2330; border-radius:8px;
+             padding:0.65rem 1rem; color:#e8e6e1; font-family:monospace; font-size:13.5px;
+             resize:vertical; outline:none; min-height:80px; box-sizing:border-box;">
+    </textarea>
+    <p style="font-family:monospace; font-size:13px; margin:6px 0 0; color:#5a5f6e;">
+      Characters used:
+      <span id="charCount" style="color:#4ade80; font-weight:600;">0</span>
+      <span style="color:#3a3f4e;">/ 150</span>
+    </p>
+  </div>
+</div>
+
 <p>This example shows how JavaScript interacts with user input.</p>
-<div class="card">
-  <h3>Write a short bio (max 150 characters):</h3>
 
-  <textarea id="bioInput" placeholder="Start typing..."></textarea>
-
-  <p>
-    Characters used:
-    <span id="charCount">0</span> / 150
-  </p>
+<div>
+  <a href="1_javascript­Pratikpoudel.pdf" download>
+    <button>Download ProjectReport</button>
+  </a>
+  <a href="https://www.w3schools.com/js/" target="_blank">Learn more about JavaScript</a>
 </div>
 <script>
 const textarea = document.getElementById("bioInput");
@@ -102,12 +125,6 @@ textarea.addEventListener("input", function () {
   }
 });
 </script>
-<div>
-  <a href="1_javascript­Pratikpoudel.pdf" download>
-    <button>Download ProjectReport</button>
-  </a>
-</div>
-<a href="https://www.w3schools.com/js/" target="_blank">Learn more about JavaScript</a>
 </section>
 
 <footer>
@@ -117,7 +134,7 @@ textarea.addEventListener("input", function () {
     <a href="mailto:pyatrick666@gmail.com"><i class="fas fa-envelope"></i></a>
     <a href="https://www.linkedin.com/in/pratik-poudel-b3264a263/" target="_blank"><i class="fab fa-linkedin"></i></a>
     <a href="https://www.instagram.com/em_ev0l/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/emev0l" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.facebook.com/evolthrottle" target="_blank"><i class="fab fa-facebook"></i></a>
     <a href="https://www.youtube.com/@999eMEvol" target="_blank"><i class="fab fa-youtube"></i></a>
   </div>
 </footer>
