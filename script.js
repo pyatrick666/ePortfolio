@@ -1,10 +1,20 @@
-// Theme toggle — safe on all pages
+// Theme toggle — safe on all pages, persists across pages via localStorage
 const toggle = document.getElementById("theme-toggle");
-if(toggle){
-  toggle.onclick = function() {
-    document.body.classList.toggle("dark-mode");
-    toggle.textContent = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+
+// Apply saved dark mode preference on every page load
+(function () {
+  if (localStorage.getItem("darkMode") === "enabled") {
+    document.body.classList.add("dark-mode");
+    if (toggle) toggle.textContent = "☀️";
   }
+})();
+
+if (toggle) {
+  toggle.onclick = function () {
+    const isDark = document.body.classList.toggle("dark-mode");
+    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+    toggle.textContent = isDark ? "☀️" : "🌙";
+  };
 }
 
 // Popup JS Demo
@@ -32,7 +42,7 @@ document.querySelectorAll('#navbar ul li a').forEach(link=>{
 
 // Snowflake effect
 let snowflakes = [];
-let snowfallActive = true;
+let snowfallActive = localStorage.getItem("snowfall") !== "disabled";
 
 const canvas = document.createElement("canvas");
 canvas.id = "snowfall-canvas";
@@ -81,8 +91,13 @@ snowBtn.id = "snow-toggle";
 snowBtn.textContent = "❄ Toggle Snowfall";
 snowBtn.style.cssText = "position:fixed;bottom:60px;right:20px;z-index:9999;padding:8px 14px;font-size:0.85rem;";
 document.body.appendChild(snowBtn);
+
+// Apply saved snowfall state to button on load
+snowBtn.style.background = snowfallActive ? "#0d6efd" : "#6c757d";
+
 snowBtn.onclick = function(){
   snowfallActive = !snowfallActive;
+  localStorage.setItem("snowfall", snowfallActive ? "enabled" : "disabled");
   snowBtn.style.background = snowfallActive ? "#0d6efd" : "#6c757d";
 };
 
