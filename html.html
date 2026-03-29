@@ -15,7 +15,7 @@
 </div>
 
 <nav id="navbar">
-  <ul id="nav-links">
+  <ul>
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="fullstack.html">Full Stack</a></li>
@@ -24,11 +24,8 @@
     <li><a href="bootstrap.html">Bootstrap</a></li>
     <li><a href="javascript.html">JavaScript</a></li>
   </ul>
-  <div class="nav-right">
-    <button id="theme-toggle">🌙</button>
-  </div>
+  <button id="theme-toggle">🌙</button>
 </nav>
-
 
 <section>
 <h2>HTML Demo</h2>
@@ -58,25 +55,138 @@
           A navigation section &lt;nav&gt; contains links &lt;a&gt;.
         This nesting builds a tree structure called the DOM (Document Object Model) that JavaScript can later access and modify.</p>
         <p>HTML5 introduced semantic elements whose names describe their purpose: &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;article&gt;, &lt;section&gt;, &lt;aside&gt;, &lt;footer&gt;. Using these instead of generic &lt;div&gt; tags makes code easier to read, improves accessibility for screen readers, and helps search engines understand the page structure.</p>
-        <h3>Code Example</h3>
-        <pre><code>
-            &lt;!DOCTYPE html&gt;
-            &lt;html&gt;
-            &lt;body&gt;
-            
-            &lt;h1&gt;This is a Heading&lt;/h1&gt;
-            &lt;p&gt;This is a paragraph&lt;/p&gt;
-            
-            &lt;/body&gt;
-            &lt;/html&gt;
-        </code></pre>
+
+         <!-- HTML Tags Reference Table -->
+  <div class="table-section">
+    <div class="section-label">
+      <h2>HTML Tag-wise Explanation</h2>
+    </div>
+    <table class="nav-table">
+      <thead>
+        <tr>
+          <th>Tag</th>
+            <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="tag-col">&lt;!DOCTYPE html&gt;</td>
+          <td>Declares that this document is an HTML5 document.</td>
+        </tr>
+        <tr>
+          <td class="tag-col">&lt;html&gt;</td>
+          <td>The root element of the HTML page; all other elements go inside this.</td>
+        </tr>
+        <tr>
+          <td class="tag-col">&lt;head&gt;</td>
+          <td>Contains meta-information about the HTML page (not visible on page).</td>
+        </tr>
+        <tr>
+          <td class="tag-col">&lt;title&gt;</td>
+          <td>Specifies the page title, shown in the browser tab or title bar.</td>
+        </tr>
+        <tr>
+          <td class="tag-col">&lt;body&gt;</td>
+          <td>Contains all visible content like headings, paragraphs, images, links, lists, etc.</td>
+        </tr>
+        <tr>
+          <td class="tag-col">&lt;h1&gt;</td>
+          <td>Defines a large heading on the page.</td>
+        </tr>
+        <tr>
+          <td class="tag-col">&lt;p&gt;</td>
+          <td>Defines a paragraph of text.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <style>
+/* ── HTML Tags Table ── */
+  .nav-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #13161d;
+    border: 1px solid #1e2330;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(251,191,36,0.06);
+  }
+ 
+  .nav-table thead tr {
+    background: linear-gradient(90deg, #1f1a0e, #1a160b);
+    border-bottom: 2px solid #fbbf24;
+  }
+ 
+  .nav-table thead th {
+    padding: 1rem 1.4rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fbbf24;
+    text-align: left;
+  }
+ 
+  .nav-table tbody tr {
+    border-bottom: 1px solid #1a1f2e;
+    transition: background 0.2s ease;
+  }
+ 
+  .nav-table tbody tr:last-child { border-bottom: none; }
+  .nav-table tbody tr:hover { background: rgba(251,191,36,0.04); }
+ 
+  .nav-table tbody td {
+    padding: 0.85rem 1.4rem;
+    font-size: 0.9rem;
+    color: #c9c7c2;
+    vertical-align: middle;
+  }
+ 
+  .nav-table td.tag-col {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #fbbf24;
+    white-space: nowrap;
+    width: 180px;
+  }
+ </style>
+      <h3>Example HTML Document</h3>
+
+<div style="
+  background: #1a1d27;
+  border-radius: 12px;
+  padding: 1.5rem 1.75rem;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 2;
+">
+  <div><span style="color:#60a5fa;">&lt;!DOCTYPE html&gt;</span></div>
+  <div><span style="color:#60a5fa;">&lt;html&gt;</span></div>
+  <div><span style="color:#60a5fa;">&lt;body&gt;</span></div>
+  <div style="margin-left: 2rem;"><br></div>
+  <div style="margin-left: 2rem;">
+    <span style="color:#60a5fa;">&lt;h1&gt;</span>
+    <span style="color:#e8e6e1;">Hello World</span>
+    <span style="color:#60a5fa;">&lt;/h1&gt;</span>
+  </div>
+  <div style="margin-left: 2rem;">
+    <span style="color:#60a5fa;">&lt;p&gt;</span>
+    <span style="color:#e8e6e1;">This is a paragraph</span>
+    <span style="color:#60a5fa;">&lt;/p&gt;</span>
+  </div>
+  <div style="margin-left: 2rem;"><br></div>
+  <div><span style="color:#60a5fa;">&lt;/body&gt;</span></div>
+  <div><span style="color:#60a5fa;">&lt;/html&gt;</span></div>
+</div>
         
-        
+    
         <h3>Live Demo</h3>
         
         <div class="demo-box">
-            <h1>This is a Heading.</h1>
-            <p>This is a paragraph.</p>
+            <h1>This is a Heading</h1>
+            <p>This is a paragraph created using HTML.</p>
         </div>
         
 
