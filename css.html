@@ -13,7 +13,6 @@
 <div class="bg-animation">
   <span></span><span></span><span></span><span></span>
 </div>
-
 <nav id="navbar">
   <ul id="nav-links">
     <li><a href="index.html">Home</a></li>
@@ -28,7 +27,6 @@
     <button id="theme-toggle">🌙</button>
   </div>
 </nav>
-
 
 <section>
 <h2>CSS — Cascading Style Sheets</h2>
@@ -74,34 +72,63 @@ Knowing which to use — and when — is an important part of writing clean, mai
 Inline CSS is written directly on an HTML element using the style attribute: &lt;p style="color: red;"&gt;. It only affects that one element and overrides all other CSS rules.
   While it works, it is considered bad practice because the same style has to be repeated on every element individually, making the code very hard to maintain and update.
       </p>
+    
+<div style="background:#1a1d27; border-radius:10px 10px 0 0; padding:1.25rem 1.5rem; font-family:monospace; font-size:13.5px; line-height:1.9;">
+  <span style="color:#60a5fa;">&lt;p</span>
+  <span style="color:#a78bfa;"> style</span><span style="color:#e8e6e1;">=</span><span style="color:#fbbf24;">"color:red; font-weight:bold;"</span>
+  <span style="color:#60a5fa;">&gt;</span>
+  <span style="color:#e8e6e1;"> This is an inline CSS paragraph. </span>
+  <span style="color:#60a5fa;">&lt;/p&gt;</span>
+</div>
+<div style="background:#13151e; border-radius:0 0 10px 10px; border-top:1px solid #2a2d3a; padding:0.75rem 1.5rem;">
+  <p style="color:red; font-weight:bold; margin:0;">This is an inline CSS paragraph.</p>
+</div>
     <h2> 2. Internal CSS</h2>
       <p>
 Internal CSS is written inside a &lt;style&gt; block placed in the &lt;head&gt; of the HTML file.
 It applies only to the page it is written in. This is better than inline because you can write one rule that targets many elements at once.
 It is suitable for small single-page projects or quick prototypes, but styles cannot be shared across multiple pages.
       </p>
+      <div style="background:#1a1d27; border-radius:10px 10px 0 0; padding:1.25rem 1.5rem; font-family:monospace; font-size:13.5px; line-height:1.9;">
+  <div><span style="color:#6b7280;">/* Internal CSS example */</span></div>
+  <div><span style="color:#fbbf24;">p.internal</span><span style="color:#e8e6e1;"> {</span></div>
+  <div style="margin-left:1.5rem;"><span style="color:#a78bfa;">color</span><span style="color:#e8e6e1;">: </span><span style="color:#4ade80;">blue</span><span style="color:#e8e6e1;">;</span></div>
+  <div style="margin-left:1.5rem;"><span style="color:#a78bfa;">font-size</span><span style="color:#e8e6e1;">: </span><span style="color:#f87171;">18px</span><span style="color:#e8e6e1;">;</span></div>
+  <div><span style="color:#e8e6e1;">}</span></div>
+</div>
+<div style="background:#13151e; border-radius:0 0 10px 10px; border-top:1px solid #2a2d3a; padding:0.75rem 1.5rem;">
+  <p style="color:blue; font-size:18px; margin:0;">This is an internal CSS paragraph.</p>
+</div>
     <h2>3. External CSS</h2>
       <p>
 External CSS is written in a separate .css file and linked to the HTML using a &lt;link&gt; tag in the &lt;head&gt;.
 This is the most common and recommended method for larger projects because it keeps content and presentation separate, allows styles to be reused across multiple pages, and makes maintenance easier.
       </p>
+      <div style="background:#1a1d27; border-radius:10px 10px 0 0; padding:1.25rem 1.5rem; font-family:monospace; font-size:13.5px; line-height:1.9;">
+  <div><span style="color:#6b7280;">/* External CSS example */</span></div>
+  <div><span style="color:#fbbf24;">.external</span><span style="color:#e8e6e1;"> {</span></div>
+  <div style="margin-left:1.5rem;"><span style="color:#a78bfa;">color</span><span style="color:#e8e6e1;">: </span><span style="color:#4ade80;">green</span><span style="color:#e8e6e1;">;</span></div>
+  <div style="margin-left:1.5rem;"><span style="color:#a78bfa;">font-style</span><span style="color:#e8e6e1;">: </span><span style="color:#4ade80;">italic</span><span style="color:#e8e6e1;">;</span></div>
+  <div><span style="color:#e8e6e1;">}</span></div>
+</div>
+<div style="background:#13151e; border-radius:0 0 10px 10px; border-top:1px solid #2a2d3a; padding:0.75rem 1.5rem;">
+  <p style="color:green; font-style:italic; margin:0;">This is an external CSS paragraph.</p>
+</div>
     
     
-    <h3>Code Example</h3>
+   
     
-    <pre><code>
-      p {
-        color: blue;
-        font-weight: bold;
-      }
-    </code></pre>
-    
-    <h3>Live Demo</h3>
-    
-    <div class="demo-box">
-      <p style="color:blue; font-weight:bold;">
-      This paragraph is styled using CSS.
-    </p>
+   <h4>Code Example</h4>
+<div style="background:#1a1d27; border-radius:10px 10px 0 0; padding:1.25rem 1.5rem; font-family:monospace; font-size:13.5px; line-height:1.9;">
+  <div><span style="color:#fbbf24;">p</span><span style="color:#e8e6e1;"> {</span></div>
+  <div style="margin-left:1.5rem;"><span style="color:#a78bfa;">color</span><span style="color:#e8e6e1;">: </span><span style="color:#4ade80;">blue</span><span style="color:#e8e6e1;">;</span></div>
+  <div style="margin-left:1.5rem;"><span style="color:#a78bfa;">font-weight</span><span style="color:#e8e6e1;">: </span><span style="color:#4ade80;">bold</span><span style="color:#e8e6e1;">;</span></div>
+  <div><span style="color:#e8e6e1;">}</span></div>
+</div>
+<div style="background:#13151e; border-radius:0 0 10px 10px; border-top:1px solid #2a2d3a; padding:0.75rem 1.5rem;">
+  <p style="color:blue; font-weight:bold; margin:0;">This is a paragraph.</p>
+</div>
+
     <div class="card">
   <div id="box">This box responds to CSS</div>
 
