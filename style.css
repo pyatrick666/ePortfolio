@@ -1,9 +1,8 @@
-
 body, html {
   margin: 0;
   padding: 0;
   background: #f4f7fb;
-  overflow-x: clip; 
+  overflow-x: clip;
   scroll-behavior: smooth;
   font-family: Arial, sans-serif;
 }
@@ -29,7 +28,6 @@ body, html {
   filter: blur(80px);
   opacity: 0.6;
   animation: float 25s infinite ease-in-out;
- 
 }
 
 .bg-animation span:nth-child(1) { background: #4facfe; top: 10%; left: 15%; animation-delay: 0s; }
@@ -552,7 +550,7 @@ p a:hover {
   }
 
   #nav-links {
-    display: flex;      /* always visible */
+    display: flex;
     flex-wrap: wrap;
     gap: 8px;
     width: 100%;
@@ -563,7 +561,6 @@ p a:hover {
     padding: 4px 0;
   }
 }
-
 
 /* ===== MOBILE ===== */
 @media (max-width: 480px) {
@@ -609,6 +606,7 @@ p a:hover {
     font-size: 1rem;
   }
 }
+
 .container {
   position: relative;
   z-index: 1;
