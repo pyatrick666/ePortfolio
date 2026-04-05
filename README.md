@@ -24,7 +24,7 @@ It is designed to provide a digital profile for academic or professional present
 - HTML5
 - CSS3
 - JavaScript
-- Bootstrap (optional)
+- Bootstrap 
 
 ---
 
