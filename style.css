@@ -3,7 +3,7 @@ body, html {
   margin: 0;
   padding: 0;
   background: #f4f7fb;
-  overflow-x: hidden;
+  overflow-x: clip; 
   scroll-behavior: smooth;
   font-family: Arial, sans-serif;
 }
