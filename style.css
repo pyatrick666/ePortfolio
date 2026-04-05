@@ -1,4 +1,4 @@
-/* ===== RESET & BASE ===== */
+
 body, html {
   margin: 0;
   padding: 0;
@@ -8,7 +8,7 @@ body, html {
   font-family: Arial, sans-serif;
 }
 
-/* ===== BACKGROUND ANIMATION ===== */
+
 .bg-animation {
   position: fixed;
   top: 0;
@@ -29,7 +29,7 @@ body, html {
   filter: blur(80px);
   opacity: 0.6;
   animation: float 25s infinite ease-in-out;
-  /* REMOVED mix-blend-mode: multiply — this was hiding them on light backgrounds */
+ 
 }
 
 .bg-animation span:nth-child(1) { background: #4facfe; top: 10%; left: 15%; animation-delay: 0s; }
@@ -55,7 +55,7 @@ body, html {
   gap: 10px;
   position: sticky;
   top: 0;
-  z-index: 1001;
+  z-index: 1000;
 }
 
 #nav-links {
