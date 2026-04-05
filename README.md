@@ -47,19 +47,6 @@ It is designed to provide a digital profile for academic or professional present
 
 ---
 
-## Folder Structure
-
-ePortfolio/
-│
-├── css/
-├── js/
-├── images/
-├── projects/
-│
-└── index.html
-
----
-
 ## Customization
 
 You can modify:
