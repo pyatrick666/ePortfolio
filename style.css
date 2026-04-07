@@ -612,3 +612,39 @@ p a:hover {
   z-index: 1;
   background: transparent;
 }
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 20px;
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.skill-badge {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+  border-radius: 14px;
+  padding: 20px 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+}
+
+.skill-badge:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(13,110,253,0.2);
+}
+
+.skill-badge img { transition: transform 0.3s ease; }
+
+.skill-badge:hover img { transform: rotate(-5deg) scale(1.1); }
+
+.skill-badge p {
+  margin: 10px 0 0;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #333;
+}
+
