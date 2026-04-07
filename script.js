@@ -1,52 +1,32 @@
-// Theme toggle — safe on all pages, persists across pages via localStorage
+// =============================================
+// script.js — Shared across all pages
+// =============================================
+
+
+// ── 1. Theme Toggle (dark / light mode) ──────
 const toggle = document.getElementById("theme-toggle");
-
-// Apply saved dark mode preference on every page load
-(function () {
-  if (localStorage.getItem("darkMode") === "enabled") {
-    document.body.classList.add("dark-mode");
-    if (toggle) toggle.textContent = "☀️";
-  }
-})();
-
 if (toggle) {
+  // Restore saved preference on page load
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    toggle.textContent = "☀️";
+  }
+
   toggle.onclick = function () {
-    const isDark = document.body.classList.toggle("dark-mode");
-    localStorage.setItem("darkMode", isDark ? "enabled" : "disabled");
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
     toggle.textContent = isDark ? "☀️" : "🌙";
+    localStorage.setItem("theme", isDark ? "dark" : "light");
   };
 }
 
-// Popup JS Demo
-function showPopup(){
-  const input = document.getElementById("popup-input");
-  if(!input) return;
-  if(input.value.trim() === ""){
-    alert("Please enter something!");
-  } else {
-    alert("You submitted: " + input.value);
-  }
-}
 
-// Smooth scroll for on-page anchor links only
-document.querySelectorAll('#navbar ul li a').forEach(link=>{
-  link.addEventListener('click', e=>{
-    const href = link.getAttribute('href');
-    if(href && href.startsWith('#')){
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if(target) target.scrollIntoView({behavior:'smooth'});
-    }
-  });
-});
-
-// Snowflake effect
+// ── 2. Snowfall Canvas Effect ─────────────────
 let snowflakes = [];
-let snowfallActive = localStorage.getItem("snowfall") !== "disabled";
+let snowfallActive = true;
 
 const canvas = document.createElement("canvas");
 canvas.id = "snowfall-canvas";
-canvas.style.cssText = "position:fixed;top:0;left:0;pointer-events:none;z-index:0;";
 document.body.appendChild(canvas);
 const ctx = canvas.getContext("2d");
 
@@ -54,83 +34,56 @@ function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 }
-window.addEventListener('resize', resizeCanvas);
+window.addEventListener("resize", resizeCanvas);
 resizeCanvas();
 
-function createSnowflakes(count=100) {
+function createSnowflakes(count = 100) {
   snowflakes = [];
-  for(let i=0;i<count;i++){
+  for (let i = 0; i < count; i++) {
     snowflakes.push({
-      x: Math.random()*canvas.width,
-      y: Math.random()*canvas.height,
-      radius: Math.random()*3 + 1,
-      speed: Math.random()*1 + 0.5
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 3 + 1,
+      speed: Math.random() * 1 + 0.5
     });
   }
 }
 createSnowflakes();
 
 function drawSnow() {
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  if(snowfallActive){
-    snowflakes.forEach(f=>{
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  if (snowfallActive) {
+    snowflakes.forEach(f => {
       ctx.beginPath();
-      ctx.arc(f.x,f.y,f.radius,0,Math.PI*2);
-      ctx.fillStyle="rgba(255,255,255,0.8)";
+      ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
+      ctx.fillStyle = "white";
       ctx.fill();
       f.y += f.speed;
-      if(f.y>canvas.height){ f.y=0; f.x=Math.random()*canvas.width; }
+      if (f.y > canvas.height) {
+        f.y = 0;
+        f.x = Math.random() * canvas.width;
+      }
     });
   }
   requestAnimationFrame(drawSnow);
 }
 drawSnow();
 
+// Snowfall toggle button
 const snowBtn = document.createElement("button");
 snowBtn.id = "snow-toggle";
 snowBtn.textContent = "❄ Toggle Snowfall";
-snowBtn.style.cssText = "position:fixed;bottom:60px;right:20px;z-index:9999;padding:8px 14px;font-size:0.85rem;";
 document.body.appendChild(snowBtn);
 
-// Apply saved snowfall state to button on load
-snowBtn.style.background = snowfallActive ? "#0d6efd" : "#6c757d";
-
-snowBtn.onclick = function(){
+snowBtn.onclick = function () {
   snowfallActive = !snowfallActive;
-  localStorage.setItem("snowfall", snowfallActive ? "enabled" : "disabled");
   snowBtn.style.background = snowfallActive ? "#0d6efd" : "#6c757d";
 };
 
-// Fetch GitHub repos — only runs on pages that have the container
-const container = document.getElementById("github-projects");
-if(container){
-  fetch("https://api.github.com/users/pyatrick666/repos")
-  .then(response => response.json())
-  .then(data => {
-    container.innerHTML = "";
-    data.slice(0,6).forEach(repo => {
-      let languageBadge = repo.language ? `<span class="language-badge">${repo.language}</span>` : "";
-      const card = document.createElement("div");
-      card.className = "project-card";
-      card.innerHTML = `
-        <h3>${repo.name}</h3>
-        <p>${repo.description || "No description provided."}</p>
-        <div class="repo-meta">
-          ${languageBadge}
-          ⭐ ${repo.stargazers_count}
-          🍴 ${repo.forks_count}
-        </div>
-        <a href="${repo.html_url}" target="_blank"><button>View Repository</button></a>
-      `;
-      container.appendChild(card);
-    });
-  })
-  .catch(err => console.error("GitHub fetch failed:", err));
-}
 
-// Typing effect — only runs if #typing-text exists (index.html only)
+// ── 3. Typing Effect (index.html only) ───────
 const typingEl = document.getElementById("typing-text");
-if(typingEl){
+if (typingEl) {
   const words = [
     "Full Stack Development ",
     "Software Engineering ",
@@ -138,27 +91,29 @@ if(typingEl){
     "and more "
   ];
 
-  let i = 0, j = 0, currentWord = "", isDeleting = false;
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  let currentWord = "";
 
-  function typeEffect(){
-    if(!isDeleting && j <= words[i].length){
-      currentWord = words[i].substring(0, j++);
+  function typeEffect() {
+    if (!isDeleting && charIndex <= words[wordIndex].length) {
+      currentWord = words[wordIndex].substring(0, charIndex++);
     }
-    if(isDeleting && j >= 0){
-      currentWord = words[i].substring(0, j--);
+    if (isDeleting && charIndex >= 0) {
+      currentWord = words[wordIndex].substring(0, charIndex--);
     }
 
     typingEl.textContent = currentWord;
 
-    if(j === words[i].length){
+    if (charIndex === words[wordIndex].length) {
       isDeleting = true;
       setTimeout(typeEffect, 1000);
       return;
     }
-
-    if(isDeleting && j === 0){
+    if (isDeleting && charIndex === 0) {
       isDeleting = false;
-      i = (i + 1) % words.length;
+      wordIndex = (wordIndex + 1) % words.length;
     }
 
     setTimeout(typeEffect, 100);
@@ -167,17 +122,67 @@ if(typingEl){
   typeEffect();
 }
 
-// Scroll reveal for sections
+
+// ── 4. Scroll Reveal for <section> elements ──
 const sections = document.querySelectorAll("section");
-window.addEventListener("scroll", ()=>{
-  sections.forEach(section=>{
-    if(section.getBoundingClientRect().top < window.innerHeight - 100){
+window.addEventListener("scroll", () => {
+  sections.forEach(section => {
+    if (section.getBoundingClientRect().top < window.innerHeight - 100) {
       section.classList.add("show");
     }
   });
 });
 
-// Trigger loaded class
-window.onload = function(){
+
+// ── 5. Skill progress bar animation on load ──
+window.addEventListener("load", () => {
   document.body.classList.add("loaded");
-};
+});
+
+
+// ── 6. GitHub Repositories (index.html only) ─
+const projectsContainer = document.getElementById("github-projects");
+if (projectsContainer) {
+  fetch("https://api.github.com/users/pyatrick666/repos")
+    .then(res => res.json())
+    .then(data => {
+      projectsContainer.innerHTML = "";
+
+      data.slice(0, 6).forEach(repo => {
+        const languageBadge = repo.language
+          ? `<span class="language-badge">${repo.language}</span>`
+          : "";
+
+        const card = document.createElement("div");
+        card.className = "project-card";
+        card.innerHTML = `
+          <h3>${repo.name}</h3>
+          <p>${repo.description || "No description provided."}</p>
+          <div class="repo-meta">
+            ${languageBadge}
+            ⭐ ${repo.stargazers_count}
+            🍴 ${repo.forks_count}
+          </div>
+          <a href="${repo.html_url}" target="_blank">
+            <button>View Repository</button>
+          </a>
+        `;
+        projectsContainer.appendChild(card);
+      });
+    })
+    .catch(() => {
+      projectsContainer.innerHTML = "<p>Could not load GitHub projects.</p>";
+    });
+}
+
+
+// ── 7. JavaScript popup demo (javascript.html only) ──
+function showPopup() {
+  const input = document.getElementById("popup-input");
+  if (!input) return;
+  if (input.value.trim() === "") {
+    alert("Please enter something!");
+  } else {
+    alert("You submitted: " + input.value);
+  }
+}
