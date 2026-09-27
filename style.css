@@ -1649,3 +1649,17 @@ textarea:focus-visible {
   .qr-payment-grid .bank-payment-card{grid-column:auto}
   .qr-code-box{width:170px;height:170px}
 }
+
+
+/* ===== GLOBAL NEON GREEN LINK HOVER ===== */
+:root{
+  --neon-green:#39ff14;
+  --neon-green-soft:rgba(57,255,20,.22);
+}
+a{
+  transition:color .22s ease, text-shadow .22s ease, border-color .22s ease, background-color .22s ease;
+}
+a:hover{
+  color:var(--neon-green) !important;
+  text-shadow:0 0 10px var(--neon-green-soft);
+}
