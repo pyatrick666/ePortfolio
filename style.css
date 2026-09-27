@@ -1486,3 +1486,15 @@ textarea:focus-visible {
 @media(max-width:760px){
   .payment-provider-grid{grid-template-columns:1fr}
 }
+
+
+/* ===== SIMPLE SUPPORT PAYMENT ===== */
+.simple-payment-grid{max-width:900px;margin:0 auto}
+.simple-pay-link{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+.support-simple-note{max-width:900px;margin:20px auto 0;padding:18px 22px;display:flex;align-items:center;gap:14px}
+.support-simple-note>i{font-size:1.5rem;color:var(--accent)}
+.support-simple-note p{margin:4px 0 0;color:var(--text-muted);font-size:.88rem}
+@media(max-width:760px){
+  .simple-payment-grid{grid-template-columns:1fr}
+  .support-simple-note{align-items:flex-start}
+}
