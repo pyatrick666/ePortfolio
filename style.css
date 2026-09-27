@@ -1663,3 +1663,18 @@ a:hover{
   color:var(--neon-green) !important;
   text-shadow:0 0 10px var(--neon-green-soft);
 }
+
+
+/* ===== SUPPORT NAV VISIBILITY ===== */
+#nav-links li a.support-nav-link{
+  color:#000;
+}
+#nav-links li a.support-nav-link:hover{
+  color:var(--neon-green) !important;
+}
+body.dark-mode #nav-links li a.support-nav-link{
+  color:#fff;
+}
+body.dark-mode #nav-links li a.support-nav-link:hover{
+  color:var(--neon-green) !important;
+}
