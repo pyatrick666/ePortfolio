@@ -41,13 +41,6 @@ click the link to view it in your browser: https://pyatrick666.github.io/ePortfo
 
 ---
 
-## Installation
-
-1. Download repository: git clone https://github.com/pyatrick666/ePortfolio.git 
-2. Open: index.html 
-3. View in browser.
-
----
 
 ## Customization
 
