@@ -3,7 +3,9 @@
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
+  <title>Pratik Poudel | Full Stack Developer Portfolio</title>
+  <meta name="description" content="Pratik Poudel's interactive full stack developer portfolio featuring web development projects, skills and GitHub work.">
+  <meta name="theme-color" content="#0d6efd">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -34,12 +36,12 @@
       </div>
     </nav>
 
-    <header class="portfolio-header">
+    <header class="portfolio-header hero-section">
+      <div class="hero-badge"><span></span> AVAILABLE FOR LEARNING &amp; COLLABORATION</div>
       <h1>
         <img src="profile.jpg" alt="Profile" class="profile-pic">
-        Hi, I'm Pratik Poudel
-        and i'm currently learning
-        <b id="typing-text"></b>
+        Hi, I'm <span class="hero-name">Pratik Poudel</span>.
+        <br>I'm currently learning <b id="typing-text"></b>
       </h1>
 
       <p>
@@ -48,10 +50,14 @@
         </a>
       </p>
 
-      <div class="resume-section">
-        <a href="resume.pdf" download>
-          <button>Download Resume</button>
-        </a>
+      <div class="hero-actions">
+        <a href="about.html"><button class="primary-cta"><i class="fas fa-user"></i> Explore My Work</button></a>
+        <a href="resume.pdf" download><button class="secondary-cta"><i class="fas fa-file-arrow-down"></i> Download Resume</button></a>
+      </div>
+      <div class="hero-stats" aria-label="Portfolio highlights">
+        <div><strong>4+</strong><span>Core Skills</span></div>
+        <div><strong>6+</strong><span>Projects</span></div>
+        <div><strong>2026</strong><span>Building Now</span></div>
       </div>
 
       <section id="about.html">
@@ -61,8 +67,8 @@
         </p>
       </section>
     </header>
-    <section>
-      
+    <section class="skills-section">
+      <div class="section-intro"><span class="eyebrow">MY TOOLKIT</span><h2>Technologies I'm Building With</h2><p>Explore each technology to see practical examples and what I've learned.</p></div>
 <div class="skills-grid">
 
   <a href="html.html" class="skill-badge">
@@ -87,8 +93,8 @@
 
 </div>
     </section>
-    <section>
-      <h3>My GitHub Projects</h3>
+    <section class="projects-section">
+      <div class="section-intro"><span class="eyebrow">BUILD IN PUBLIC</span><h2>My GitHub Projects</h2><p>Real projects, experiments and coursework — pulled directly from GitHub.</p></div>
       <div id="github-projects"></div>
     </section>
 
@@ -109,27 +115,6 @@
   </div><!-- end .container -->
 
   <script src="script.js"></script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.body.classList.add("loaded");
-
-      // Page transition links
-      const links = document.querySelectorAll("a");
-      links.forEach(link => {
-        link.addEventListener("click", function(e) {
-          const href = this.getAttribute("href");
-          if (href && !href.startsWith("#") && !href.startsWith("http")) {
-            e.preventDefault();
-            document.body.classList.add("fade-out");
-            setTimeout(() => {
-              window.location.href = href;
-            }, 500);
-          }
-        });
-      });
-    });
-  </script>
 
 </body>
 </html>
