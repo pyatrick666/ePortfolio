@@ -1777,7 +1777,7 @@ body.dark-mode #nav-links li a.support-nav-link:hover{
 .step-payment-grid .payment-step-card{
   min-width:0;
   padding:0;
-  overflow:hidden;
+  overflow:visible;
 }
 .payment-method-trigger{
   width:100%;
@@ -1799,9 +1799,7 @@ body.dark-mode #nav-links li a.support-nav-link:hover{
   transform:none;
   background:rgba(13,110,253,.055);
 }
-.payment-method-trigger::before{
-  display:none;
-}
+.payment-method-trigger::before{display:none}
 .payment-method-copy{
   min-width:0;
   display:flex;
@@ -1817,9 +1815,7 @@ body.dark-mode #nav-links li a.support-nav-link:hover{
   font-size:.74rem;
   font-weight:700;
 }
-.payment-method-copy .project-kicker{
-  margin:0;
-}
+.payment-method-copy .project-kicker{margin:0}
 .payment-chevron{
   color:var(--text-muted);
   transition:transform .3s ease,color .3s ease;
@@ -1833,9 +1829,7 @@ body.dark-mode #nav-links li a.support-nav-link:hover{
   text-align:center;
   animation:paymentReveal .35s ease;
 }
-.payment-details[hidden]{
-  display:none;
-}
+.payment-details[hidden]{display:none}
 .payment-details>p{
   max-width:420px;
   margin:0 auto 12px;
@@ -1843,8 +1837,11 @@ body.dark-mode #nav-links li a.support-nav-link:hover{
   font-size:.88rem;
   line-height:1.55;
 }
-.payment-details .payment-account-box{
-  margin-top:12px;
+.qr-payment-stage{
+  position:relative;
+  width:min(100%,430px);
+  margin:0 auto;
+  padding-top:8px;
 }
 .qr-hover-wrap{
   display:flex;
@@ -1852,101 +1849,111 @@ body.dark-mode #nav-links li a.support-nav-link:hover{
 }
 .qr-hover-wrap .qr-code-box{
   position:relative;
-  overflow:hidden;
+  overflow:visible;
   isolation:isolate;
+  z-index:2;
 }
 .qr-hover-wrap .qr-code-box img{
-  transition:transform .35s ease,filter .35s ease;
+  transition:transform .3s ease,filter .3s ease;
 }
-.qr-hover-wrap .qr-code-box:hover img,
-.qr-hover-wrap .qr-code-box:focus-within img{
-  transform:scale(1.04);
-  filter:brightness(.48);
-}
-.qr-hover-details{
+.qr-hover-info{
   position:absolute;
-  inset:10px;
-  z-index:2;
+  left:50%;
+  top:-6px;
+  z-index:5;
+  width:min(250px,calc(100% - 24px));
+  box-sizing:border-box;
+  padding:14px 16px;
+  border:1px solid var(--glass-border);
+  border-radius:16px;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(18px);
+  box-shadow:0 16px 36px rgba(15,23,42,.18);
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:center;
-  gap:7px;
-  padding:14px;
-  box-sizing:border-box;
-  border-radius:10px;
-  background:rgba(8,11,18,.78);
-  color:#fff;
-  opacity:0;
-  transform:scale(.96);
-  pointer-events:none;
-  transition:opacity .25s ease,transform .25s ease;
+  gap:5px;
   text-align:center;
+  opacity:0;
+  visibility:hidden;
+  transform:translate(-50%,8px);
+  transition:opacity .22s ease,transform .22s ease,visibility .22s ease;
+  pointer-events:none;
 }
-.qr-code-box:hover .qr-hover-details,
-.qr-code-box:focus-within .qr-hover-details{
+.qr-payment-stage:hover .qr-hover-info,
+.qr-payment-stage:focus-within .qr-hover-info{
   opacity:1;
-  transform:scale(1);
+  visibility:visible;
+  transform:translate(-50%,-100%);
+  pointer-events:auto;
 }
-.qr-hover-details span{
-  display:flex;
-  align-items:center;
-  gap:7px;
-  font-size:.76rem;
+.qr-info-label{
+  color:var(--text-muted);
+  font-size:.62rem;
+  font-weight:900;
+  letter-spacing:.1em;
+}
+.qr-hover-info strong{
+  font-size:.92rem;
+  line-height:1.25;
+}
+.qr-info-value{
+  color:var(--text-muted);
+  font-size:.72rem;
   font-weight:800;
 }
-.qr-hover-details i{
-  color:#7dd3fc;
+.bank-hover-number{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  letter-spacing:.03em;
 }
-.qr-hover-details small{
-  margin-top:3px;
-  font-size:.66rem;
-  opacity:.82;
+.qr-hover-info .copy-payment-btn{
+  margin-top:5px;
+  pointer-events:auto;
 }
+.qr-hover-wrap .qr-code-box:hover img,
+.qr-hover-wrap .qr-code-box:focus-within img{
+  transform:scale(1.025);
+  filter:drop-shadow(0 14px 28px rgba(15,23,42,.16));
+}
+.qr-caption{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  margin-top:2px;
+  color:var(--text-muted);
+  font-size:.72rem;
+  font-weight:800;
+}
+.qr-caption i{color:var(--accent)}
+.payment-details .payment-interface-btn{margin-top:14px}
 @keyframes paymentReveal{
   from{opacity:0;transform:translateY(-6px)}
   to{opacity:1;transform:translateY(0)}
 }
-.dark-mode .payment-method-trigger{
-  color:#f8fafc;
+.dark-mode .payment-method-trigger{color:#f8fafc}
+.dark-mode .payment-method-trigger:hover{background:rgba(125,211,252,.07)}
+.dark-mode .payment-method-copy small{color:#cbd5e1}
+.dark-mode .qr-hover-info{
+  background:rgba(18,23,35,.96);
+  border-color:rgba(255,255,255,.10);
+  box-shadow:0 18px 40px rgba(0,0,0,.35);
 }
-.dark-mode .payment-method-trigger:hover{
-  background:rgba(125,211,252,.07);
-}
-.dark-mode .payment-method-copy small{
-  color:#cbd5e1;
-}
+.dark-mode .qr-hover-info strong{color:#f8fafc}
+.dark-mode .qr-info-value{color:#cbd5e1}
 @media(max-width:900px){
-  .step-payment-grid{
-    grid-template-columns:1fr 1fr;
-  }
-  .step-payment-grid .bank-payment-card{
-    grid-column:1 / -1;
-  }
+  .step-payment-grid{grid-template-columns:1fr 1fr}
+  .step-payment-grid .bank-payment-card{grid-column:1 / -1}
 }
 @media(max-width:600px){
-  .step-payment-grid{
-    grid-template-columns:1fr;
-    gap:14px;
-  }
-  .step-payment-grid .bank-payment-card{
-    grid-column:auto;
-  }
-  .payment-method-trigger{
-    min-height:96px;
-    padding:17px;
-    gap:11px;
-  }
-  .payment-method-copy strong{
-    font-size:1rem;
-  }
-  .payment-method-copy small{
-    font-size:.68rem;
-  }
-  .payment-details{
-    padding:0 16px 20px;
-  }
-  .qr-hover-details{
-    inset:10px;
+  .step-payment-grid{grid-template-columns:1fr;gap:14px}
+  .step-payment-grid .bank-payment-card{grid-column:auto}
+  .payment-method-trigger{min-height:96px;padding:17px;gap:11px}
+  .payment-method-copy strong{font-size:1rem}
+  .payment-method-copy small{font-size:.68rem}
+  .payment-details{padding:0 16px 20px}
+  .qr-payment-stage{padding-top:4px}
+  .qr-hover-info{
+    width:min(230px,calc(100% - 20px));
   }
 }
