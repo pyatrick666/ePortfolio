@@ -66,18 +66,13 @@
                 <div class="qr-hover-info" role="status">
                   <span class="qr-info-label">PAYMENT DETAILS</span>
                   <strong>Pratik Poudel</strong>
-                  <span class="qr-info-value">eSewa · 9866805775</span>
-                  <button class="copy-payment-btn" type="button" data-copy="9866805775"><i class="fas fa-copy"></i> Copy eSewa ID</button>
+                  <span class="qr-info-value">Khalti · 9866805775</span>
+                  <button class="copy-payment-btn" type="button" data-copy="9866805775"><i class="fas fa-copy"></i> Copy Khalti ID</button>
                 </div>
                 <div class="qr-hover-wrap">
                 <div class="qr-code-box">
                   <img src="assets/qr/esewa-qr.png" alt="Pratik Poudel eSewa QR code">
-                  <div class="qr-hover-details">
-                    <span><i class="fas fa-user"></i> Pratik Poudel</span>
-                    <span><i class="fas fa-phone"></i> 9866805775</span>
-                    <small>Scan with eSewa</small>
-                  </div>
-                </div>
+</div>
               </div>
               <span class="qr-caption"><i class="fas fa-qrcode"></i> Hover or tap the QR to see payment details</span>
                 </div>
@@ -107,12 +102,7 @@
                 <div class="qr-hover-wrap">
                 <div class="qr-code-box">
                   <img src="assets/qr/khalti-qr.png" alt="Pratik Poudel Khalti QR code">
-                  <div class="qr-hover-details">
-                    <span><i class="fas fa-user"></i> Pratik Poudel</span>
-                    <span><i class="fas fa-phone"></i> 9866805775</span>
-                    <small>Scan with Khalti</small>
-                  </div>
-                </div>
+</div>
               </div>
               <span class="qr-caption"><i class="fas fa-qrcode"></i> Hover or tap the QR to see payment details</span>
                 </div>
@@ -143,149 +133,7 @@
                 <div class="qr-hover-wrap">
                 <div class="qr-code-box">
                   <img src="assets/qr/bank-qr.png" alt="Pratik Poudel Global IME Bank payment QR code">
-                  <div class="qr-hover-details">
-                    <span><i class="fas fa-user"></i> Pratik Poudel</span>
-                    <span><i class="fas fa-building-columns"></i> Global IME Bank</span>
-                    <span><i class="fas fa-hashtag"></i> 19507010129350</span>
-                    <small>Scan to transfer</small>
-                  </div>
-                </div>
-              </div>
-              <span class="qr-caption"><i class="fas fa-qrcode"></i> Hover or tap the QR to see account details</span>
-                </div>
-              <a class="payment-interface-btn bank-interface-btn" href="https://www.globalimebank.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Open Global IME Bank</a>
-            </div>
-          </article>
-        </div>
-
-        <div class="support-simple-note glass-panel">
-          <i class="fas fa-hand-pointer"></i>
-          <div>
-            <strong>One step at a time</strong>
-            <p>Choose a payment method first. The QR code and details will appear when you open it.</p>
-          </div>
-        </div>
-      </section>
-
-    </main>
-
-    <footer>
-      <div class="footer-logo">© 2026 Pratik Poudel · bj03gj (240833161) · BSc.IT · ISMT College</div>
-      <div class="footer-icons">
-        <a href="https://github.com/pyatrick666" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="mailto:pyatrick666@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.linkedin.com/in/pratik-poudel-b3264a263/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      </div>
-    </footer>
-  </div>
-
-  <script src="script.js"></script>
-  <script>
-    document.querySelectorAll("[data-payment-card] .payment-method-trigger").forEach(trigger => {
-      trigger.addEventListener("click", () => {
-        const card = trigger.closest("[data-payment-card]");
-        const details = document.getElementById(trigger.getAttribute("aria-controls"));
-        const isOpen = trigger.getAttribute("aria-expanded") === "true";
-
-        document.querySelectorAll("[data-payment-card]").forEach(otherCard => {
-          const otherTrigger = otherCard.querySelector(".payment-method-trigger");
-          const otherDetails = otherCard.querySelector(".payment-details");
-          if (otherTrigger && otherDetails && otherCard !== card) {
-            otherTrigger.setAttribute("aria-expanded", "false");
-            otherDetails.hidden = true;
-            otherCard.classList.remove("is-open");
-          }
-        });
-
-        trigger.setAttribute("aria-expanded", String(!isOpen));
-        details.hidden = isOpen;
-        card.classList.toggle("is-open", !isOpen);
-      });
-    });
-
-    document.querySelectorAll(".copy-payment-btn").forEach(button => {
-      button.addEventListener("click", async () => {
-        const value = button.dataset.copy || "";
-        try {
-          await navigator.clipboard.writeText(value);
-          const original = button.innerHTML;
-          button.innerHTML = '<i class="fas fa-check"></i> Copied';
-          setTimeout(() => { button.innerHTML = original; }, 1600);
-        } catch {
-          window.prompt("Copy this payment ID:", value);
-        }
-      });
-    });
-  </script>
-
-</body>
-</html></article>
-
-          <article class="payment-provider-card glass-panel payment-step-card khalti-card" data-payment-card>
-            <button class="payment-method-trigger" type="button" aria-expanded="false" aria-controls="khalti-payment-details">
-              <span class="provider-logo khalti-logo">K</span>
-              <span class="payment-method-copy">
-                <span class="project-kicker">PAYMENT OPTION</span>
-                <strong>Khalti</strong>
-                <small>Tap to view QR &amp; payment details</small>
-              </span>
-              <i class="fas fa-chevron-down payment-chevron" aria-hidden="true"></i>
-            </button>
-            <div class="payment-details" id="khalti-payment-details" hidden>
-              <p>Scan the QR code with Khalti or use my Khalti mobile number.</p>
-              <div class="qr-payment-stage">
-                <div class="qr-hover-info" role="status">
-                  <span class="qr-info-label">PAYMENT DETAILS</span>
-                  <strong>Pratik Poudel</strong>
-                  <span class="qr-info-value">eSewa · 9866805775</span>
-                  <button class="copy-payment-btn" type="button" data-copy="9866805775"><i class="fas fa-copy"></i> Copy eSewa ID</button>
-                </div>
-                <div class="qr-hover-wrap">
-                <div class="qr-code-box">
-                  <img src="assets/qr/khalti-qr.png" alt="Pratik Poudel Khalti QR code">
-                  <div class="qr-hover-details">
-                    <span><i class="fas fa-user"></i> Pratik Poudel</span>
-                    <span><i class="fas fa-phone"></i> 9866805775</span>
-                    <small>Scan with Khalti</small>
-                  </div>
-                </div>
-              </div>
-              <span class="qr-caption"><i class="fas fa-qrcode"></i> Hover or tap the QR to see payment details</span>
-                </div>
-              <a class="payment-interface-btn khalti-interface-btn" href="https://khalti.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Open Khalti</a>
-            </div>
-          </article>
-
-          <article class="payment-provider-card glass-panel payment-step-card bank-payment-card" data-payment-card>
-            <button class="payment-method-trigger" type="button" aria-expanded="false" aria-controls="bank-payment-details">
-              <span class="provider-logo bank-logo"><i class="fas fa-building-columns"></i></span>
-              <span class="payment-method-copy">
-                <span class="project-kicker">PAYMENT OPTION</span>
-                <strong>Bank Transfer</strong>
-                <small>Tap to view QR &amp; account details</small>
-              </span>
-              <i class="fas fa-chevron-down payment-chevron" aria-hidden="true"></i>
-            </button>
-            <div class="payment-details" id="bank-payment-details" hidden>
-              <p>Transfer directly to my Global IME Bank account or scan the QR code.</p>
-              <div class="qr-payment-stage">
-                <div class="qr-hover-info" role="status">
-                  <span class="qr-info-label">ACCOUNT DETAILS</span>
-                  <strong>Pratik Poudel</strong>
-                  <span class="qr-info-value">Global IME Bank</span>
-                  <span class="qr-info-value bank-hover-number">19507010129350</span>
-                  <button class="copy-payment-btn" type="button" data-copy="19507010129350"><i class="fas fa-copy"></i> Copy Account Number</button>
-                </div>
-                <div class="qr-hover-wrap">
-                <div class="qr-code-box">
-                  <img src="assets/qr/bank-qr.png" alt="Pratik Poudel Global IME Bank payment QR code">
-                  <div class="qr-hover-details">
-                    <span><i class="fas fa-user"></i> Pratik Poudel</span>
-                    <span><i class="fas fa-building-columns"></i> Global IME Bank</span>
-                    <span><i class="fas fa-hashtag"></i> 19507010129350</span>
-                    <small>Scan to transfer</small>
-                  </div>
-                </div>
+</div>
               </div>
               <span class="qr-caption"><i class="fas fa-qrcode"></i> Hover or tap the QR to see account details</span>
                 </div>
