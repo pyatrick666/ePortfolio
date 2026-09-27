@@ -1559,3 +1559,38 @@ textarea:focus-visible {
   justify-content:center;
   text-align:center;
 }
+
+
+/* ===== BANK TRANSFER PAYMENT ===== */
+.bank-payment-card{
+  max-width:900px;
+  margin:20px auto 0;
+  padding:28px;
+  text-align:center;
+}
+.bank-payment-card .provider-heading{
+  justify-content:center;
+  text-align:left;
+}
+.bank-logo{
+  background:linear-gradient(135deg,#334155,#64748b);
+}
+.bank-placeholder{
+  max-width:420px;
+  margin:20px auto 0;
+  padding:28px 20px;
+  border:1px dashed var(--glass-border);
+  border-radius:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:7px;
+  color:var(--text-muted);
+  background:rgba(127,127,127,.06);
+}
+.bank-placeholder i{
+  font-size:2rem;
+  color:var(--accent);
+  margin-bottom:5px;
+}
+.bank-placeholder strong{color:var(--text-main)}
