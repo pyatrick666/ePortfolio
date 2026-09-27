@@ -1397,3 +1397,11 @@ textarea:focus-visible {
 .responsive-bootstrap-grid > div > div:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(15,23,42,.16)}
 @media(max-width:575.98px){.responsive-bootstrap-grid{margin-left:0;margin-right:0}.responsive-bootstrap-grid > div > div{min-height:90px;padding:1.25rem!important;font-size:.9rem}}
 @media(min-width:576px) and (max-width:991.98px){.responsive-bootstrap-grid > div > div{min-height:120px}}
+
+
+/* Featured projects section */
+.featured-section{padding:70px 0 20px;scroll-margin-top:90px}
+.featured-section .section-intro{max-width:800px;margin:0 auto 30px;text-align:center}
+.featured-section .section-intro h2{margin:8px 0 10px}
+.featured-section .section-intro p{color:var(--text-muted);line-height:1.7;margin:0}
+@media(max-width:800px){.featured-section{padding:55px 0 15px}}
