@@ -1498,3 +1498,46 @@ textarea:focus-visible {
   .simple-payment-grid{grid-template-columns:1fr}
   .support-simple-note{align-items:flex-start}
 }
+
+
+/* ===== CENTER ALIGN SUPPORT PAGE CONTENT ===== */
+.support-hero,
+.payment-options,
+.support-info-grid{
+  text-align:center;
+}
+.support-hero .support-copy{
+  max-width:850px;
+  margin:0 auto;
+}
+.payment-options .section-intro{
+  max-width:850px;
+  margin:0 auto 28px;
+}
+.simple-payment-grid{
+  justify-items:stretch;
+}
+.simple-payment-grid .payment-provider-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.simple-payment-grid .provider-heading{
+  justify-content:center;
+  text-align:left;
+}
+.simple-payment-grid .provider-methods{
+  justify-content:center;
+}
+.simple-payment-grid .simple-pay-link{
+  margin-left:auto;
+  margin-right:auto;
+}
+.support-simple-note{
+  justify-content:center;
+  text-align:center;
+}
+.support-simple-note>i{
+  flex:0 0 auto;
+}
