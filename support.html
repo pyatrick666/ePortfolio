@@ -46,7 +46,7 @@
         <div class="section-intro">
           <span class="eyebrow">SUPPORT ME</span>
           <h2 id="payment-heading">Choose a payment method</h2>
-          <p>Use eSewa or Khalti to support my work in Nepal.</p>
+          <p>Choose a payment method below. Each option shows the account details you need to complete your donation.</p>
         </div>
 
         <div class="payment-provider-grid simple-payment-grid qr-payment-grid">
@@ -55,11 +55,17 @@
               <div class="provider-logo esewa-logo">e</div>
               <div><span class="project-kicker">SCAN TO PAY</span><h2>eSewa</h2></div>
             </div>
-            <p>Scan this QR code with your eSewa app to support my work.</p>
+            <p>Use my eSewa number or scan the QR code to send your support.</p>
+            <div class="payment-account-box">
+              <span class="payment-account-label">eSewa ID / Mobile</span>
+              <strong>9866805775</strong>
+              <button class="copy-payment-btn" type="button" data-copy="9866805775"><i class="fas fa-copy"></i> Copy eSewa ID</button>
+            </div>
             <div class="qr-code-box">
               <img src="assets/qr/esewa-qr.png" alt="Pratik Poudel eSewa QR code">
             </div>
             <span class="qr-caption"><i class="fas fa-mobile-screen-button"></i> Scan with eSewa</span>
+            <a class="payment-interface-btn esewa-interface-btn" href="https://esewa.com.np/" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Open eSewa</a>
           </article>
 
           <article class="payment-provider-card glass-panel khalti-card">
@@ -67,11 +73,17 @@
               <div class="provider-logo khalti-logo">K</div>
               <div><span class="project-kicker">SCAN TO PAY</span><h2>Khalti</h2></div>
             </div>
-            <p>Scan this QR code with your Khalti app to support my work.</p>
+            <p>Use my Khalti number or scan the QR code to send your support.</p>
+            <div class="payment-account-box">
+              <span class="payment-account-label">Khalti ID / Mobile</span>
+              <strong>9866805775</strong>
+              <button class="copy-payment-btn" type="button" data-copy="9866805775"><i class="fas fa-copy"></i> Copy Khalti ID</button>
+            </div>
             <div class="qr-code-box">
               <img src="assets/qr/khalti-qr.png" alt="Pratik Poudel Khalti QR code">
             </div>
             <span class="qr-caption"><i class="fas fa-mobile-screen-button"></i> Scan with Khalti</span>
+            <a class="payment-interface-btn khalti-interface-btn" href="https://khalti.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Open Khalti</a>
           </article>
 
           <article class="payment-provider-card glass-panel bank-payment-card">
@@ -79,11 +91,18 @@
               <div class="provider-logo bank-logo"><i class="fas fa-building-columns"></i></div>
               <div><span class="project-kicker">SCAN TO PAY</span><h2>Bank Transfer</h2></div>
             </div>
-            <p>Scan this bank QR code using a supported banking or payment app.</p>
+            <p>Transfer directly to my Global IME Bank account or scan the QR code.</p>
+            <div class="payment-account-box bank-account-box">
+              <span class="payment-account-label">Global IME Bank</span>
+              <strong>Pratik Poudel</strong>
+              <span class="bank-account-number">19507010129350</span>
+              <button class="copy-payment-btn" type="button" data-copy="19507010129350"><i class="fas fa-copy"></i> Copy Account Number</button>
+            </div>
             <div class="qr-code-box">
-              <img src="assets/qr/bank-qr.png" alt="Pratik Poudel bank payment QR code">
+              <img src="assets/qr/bank-qr.png" alt="Pratik Poudel Global IME Bank payment QR code">
             </div>
             <span class="qr-caption"><i class="fas fa-qrcode"></i> Scan to transfer</span>
+            <a class="payment-interface-btn bank-interface-btn" href="https://www.globalimebank.com/" target="_blank" rel="noopener noreferrer"><i class="fas fa-arrow-up-right-from-square"></i> Open Global IME Bank</a>
           </article>
         </div>
 
@@ -109,6 +128,21 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    document.querySelectorAll(".copy-payment-btn").forEach(button => {
+      button.addEventListener("click", async () => {
+        const value = button.dataset.copy || "";
+        try {
+          await navigator.clipboard.writeText(value);
+          const original = button.innerHTML;
+          button.innerHTML = '<i class="fas fa-check"></i> Copied';
+          setTimeout(() => { button.innerHTML = original; }, 1600);
+        } catch {
+          window.prompt("Copy this payment ID:", value);
+        }
+      });
+    });
+  </script>
 
 </body>
 </html>
