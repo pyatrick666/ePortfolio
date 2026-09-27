@@ -1,188 +1,304 @@
-// =============================================
-// script.js — Shared across all pages
-// =============================================
+// =========================================================
+// Pratik Poudel ePortfolio — Interactive Experience
+// Shared across every page
+// =========================================================
 
+document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// ── 1. Theme Toggle (dark / light mode) ──────
-const toggle = document.getElementById("theme-toggle");
-if (toggle) {
-  // Restore saved preference on page load
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-    toggle.textContent = "☀️";
+  // ── 1. Persistent theme ────────────────────────────────
+  const toggle = document.getElementById("theme-toggle");
+
+  function applyTheme(theme) {
+    const dark = theme === "dark";
+    body.classList.toggle("dark-mode", dark);
+    if (toggle) {
+      toggle.textContent = dark ? "☀️" : "🌙";
+      toggle.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+      toggle.setAttribute("title", dark ? "Switch to light mode" : "Switch to dark mode");
+    }
   }
 
-  toggle.onclick = function () {
-    document.body.classList.toggle("dark-mode");
-    const isDark = document.body.classList.contains("dark-mode");
-    toggle.textContent = isDark ? "☀️" : "🌙";
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  };
-}
+  applyTheme(localStorage.getItem("theme") || "light");
 
-
-// ── 2. Snowfall Canvas Effect ─────────────────
-let snowflakes = [];
-let snowfallActive = true;
-
-const canvas = document.createElement("canvas");
-canvas.id = "snowfall-canvas";
-document.body.appendChild(canvas);
-const ctx = canvas.getContext("2d");
-
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-window.addEventListener("resize", resizeCanvas);
-resizeCanvas();
-
-function createSnowflakes(count = 100) {
-  snowflakes = [];
-  for (let i = 0; i < count; i++) {
-    snowflakes.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      radius: Math.random() * 3 + 1,
-      speed: Math.random() * 1 + 0.5
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      const next = body.classList.contains("dark-mode") ? "light" : "dark";
+      localStorage.setItem("theme", next);
+      applyTheme(next);
     });
   }
-}
-createSnowflakes();
 
-function drawSnow() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  if (snowfallActive) {
-    snowflakes.forEach(f => {
-      ctx.beginPath();
-      ctx.arc(f.x, f.y, f.radius, 0, Math.PI * 2);
-      ctx.fillStyle = "white";
-      ctx.fill();
-      f.y += f.speed;
-      if (f.y > canvas.height) {
-        f.y = 0;
-        f.x = Math.random() * canvas.width;
+  // ── 2. Scroll progress + smart navbar ──────────────────
+  const navbar = document.getElementById("navbar");
+
+  const progressBar = document.createElement("div");
+  progressBar.id = "scroll-progress";
+  document.body.appendChild(progressBar);
+
+  function updateScrollUI() {
+    const scrollTop = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const percent = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+
+    progressBar.style.width = percent + "%";
+
+    if (navbar) {
+      navbar.classList.toggle("scrolled", scrollTop > 35);
+    }
+
+    if (backTop) {
+      backTop.classList.toggle("show", scrollTop > 500);
+    }
+  }
+
+  window.addEventListener("scroll", updateScrollUI, { passive: true });
+
+  // ── 3. Back-to-top button ──────────────────────────────
+  const backTop = document.createElement("button");
+  backTop.id = "back-to-top";
+  backTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+  backTop.setAttribute("aria-label", "Back to top");
+  backTop.title = "Back to top";
+  document.body.appendChild(backTop);
+
+  backTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
+  });
+
+  updateScrollUI();
+
+  // ── 4. Active navigation link ──────────────────────────
+  const currentPage = location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll("#nav-links a").forEach(link => {
+    const href = (link.getAttribute("href") || "").split("/").pop();
+    if (href === currentPage || (currentPage === "" && href === "index.html")) {
+      link.classList.add("active");
+      link.setAttribute("aria-current", "page");
+    }
+  });
+
+  // ── 5. Scroll reveal for sections and visual elements ──
+  const revealTargets = document.querySelectorAll(
+    "section, .card, .project-card, .about-card, .skill-badge, .portfolio-header"
+  );
+
+  revealTargets.forEach((el, index) => {
+    el.classList.add("reveal");
+    if (index % 4 !== 0) el.classList.add("reveal-delay-" + (index % 4));
+  });
+
+  if ("IntersectionObserver" in window && !prefersReducedMotion) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -45px 0px" });
+
+    revealTargets.forEach(el => observer.observe(el));
+  } else {
+    revealTargets.forEach(el => el.classList.add("visible"));
+  }
+
+  // ── 6. Cursor glow + subtle trail ──────────────────────
+  if (!prefersReducedMotion && window.matchMedia("(pointer:fine)").matches) {
+    const glow = document.createElement("div");
+    glow.id = "cursor-glow";
+    document.body.appendChild(glow);
+
+    let lastTrail = 0;
+
+    window.addEventListener("pointermove", e => {
+      glow.style.left = e.clientX + "px";
+      glow.style.top = e.clientY + "px";
+      glow.style.opacity = "1";
+
+      const now = performance.now();
+      if (now - lastTrail > 45) {
+        const dot = document.createElement("span");
+        dot.className = "cursor-dot";
+        dot.style.left = e.clientX + "px";
+        dot.style.top = e.clientY + "px";
+        document.body.appendChild(dot);
+        setTimeout(() => dot.remove(), 600);
+        lastTrail = now;
       }
     });
+
+    window.addEventListener("pointerleave", () => {
+      glow.style.opacity = "0";
+    });
   }
-  requestAnimationFrame(drawSnow);
-}
-drawSnow();
 
-// Snowfall toggle button
-const snowBtn = document.createElement("button");
-snowBtn.id = "snow-toggle";
-snowBtn.textContent = "❄ Toggle Snowfall";
-document.body.appendChild(snowBtn);
+  // ── 7. Gentle 3D tilt for cards ────────────────────────
+  if (!prefersReducedMotion && window.matchMedia("(pointer:fine)").matches) {
+    document.querySelectorAll(".project-card, .skill-badge, .about-card, .card").forEach(card => {
+      card.addEventListener("pointermove", e => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        card.style.transform =
+          "perspective(900px) rotateX(" + (-y * 5) + "deg) rotateY(" + (x * 5) + "deg) translateY(-5px)";
+      });
 
-snowBtn.onclick = function () {
-  snowfallActive = !snowfallActive;
-  snowBtn.style.background = snowfallActive ? "#0d6efd" : "#6c757d";
-};
+      card.addEventListener("pointerleave", () => {
+        card.style.transform = "";
+      });
+    });
+  }
 
+  // ── 8. Smooth internal anchor scrolling ─────────────────
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener("click", e => {
+      const target = document.querySelector(link.getAttribute("href"));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+        block: "start"
+      });
+    });
+  });
 
-// ── 3. Typing Effect (index.html only) ───────
-const typingEl = document.getElementById("typing-text");
-if (typingEl) {
-  const words = [
-    "Full Stack Development ",
-    "Software Engineering ",
-    "Networking ",
-    "and more "
-  ];
+  // ── 9. Page transitions between portfolio pages ────────
+  document.querySelectorAll('a[href$=".html"]').forEach(link => {
+    link.addEventListener("click", e => {
+      const href = link.getAttribute("href");
+      if (!href || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
 
-  let wordIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-  let currentWord = "";
+      e.preventDefault();
+      body.classList.add("page-leaving");
+      setTimeout(() => { window.location.href = href; }, prefersReducedMotion ? 0 : 220);
+    });
+  });
 
-  function typeEffect() {
-    if (!isDeleting && charIndex <= words[wordIndex].length) {
-      currentWord = words[wordIndex].substring(0, charIndex++);
+  // ── 10. Typing effect ──────────────────────────────────
+  const typingEl = document.getElementById("typing-text");
+
+  if (typingEl) {
+    const words = [
+      "Full Stack Development",
+      "Software Engineering",
+      "Networking",
+      "Creative Web Experiences"
+    ];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeEffect() {
+      const word = words[wordIndex];
+
+      if (!deleting) {
+        charIndex++;
+        typingEl.textContent = word.substring(0, charIndex);
+
+        if (charIndex === word.length) {
+          deleting = true;
+          setTimeout(typeEffect, 1300);
+          return;
+        }
+      } else {
+        charIndex--;
+        typingEl.textContent = word.substring(0, charIndex);
+
+        if (charIndex === 0) {
+          deleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
+      }
+
+      setTimeout(typeEffect, deleting ? 55 : 85);
     }
-    if (isDeleting && charIndex >= 0) {
-      currentWord = words[wordIndex].substring(0, charIndex--);
-    }
 
-    typingEl.textContent = currentWord;
+    typeEffect();
+  }
 
-    if (charIndex === words[wordIndex].length) {
-      isDeleting = true;
-      setTimeout(typeEffect, 1000);
+  // ── 11. Skill progress animation ───────────────────────
+  window.addEventListener("load", () => {
+    body.classList.add("loaded");
+  });
+
+  // ── 12. GitHub repository cards ─────────────────────────
+  const projectsContainer = document.getElementById("github-projects");
+
+  if (projectsContainer) {
+    fetch("https://api.github.com/users/pyatrick666/repos?sort=updated&per_page=12")
+      .then(res => {
+        if (!res.ok) throw new Error("GitHub API error");
+        return res.json();
+      })
+      .then(data => {
+        projectsContainer.innerHTML = "";
+
+        const repos = data
+          .filter(repo => !repo.fork)
+          .slice(0, 6);
+
+        if (!repos.length) {
+          projectsContainer.innerHTML = "<p>No public projects found yet.</p>";
+          return;
+        }
+
+        repos.forEach((repo, index) => {
+          const languageBadge = repo.language
+            ? '<span class="language-badge">' + repo.language + "</span>"
+            : "";
+
+          const card = document.createElement("article");
+          card.className = "project-card reveal visible";
+          card.style.transitionDelay = (index * 70) + "ms";
+
+          card.innerHTML = `
+            <h3>${repo.name}</h3>
+            <p>${repo.description || "A project from my GitHub portfolio."}</p>
+            <div class="repo-meta">
+              ${languageBadge}
+              <span>⭐ ${repo.stargazers_count}</span>
+              <span>🍴 ${repo.forks_count}</span>
+            </div>
+            <a class="repo-btn" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
+              <button type="button"><i class="fab fa-github"></i> View Repository</button>
+            </a>
+          `;
+
+          projectsContainer.appendChild(card);
+        });
+      })
+      .catch(() => {
+        projectsContainer.innerHTML =
+          '<p>GitHub projects could not be loaded right now. <a href="https://github.com/pyatrick666" target="_blank" rel="noopener noreferrer">View my GitHub profile</a>.</p>';
+      });
+  }
+
+  // ── 13. JavaScript popup demo ──────────────────────────
+  window.showPopup = function () {
+    const input = document.getElementById("popup-input");
+    if (!input) return;
+
+    const value = input.value.trim();
+    if (!value) {
+      alert("Please enter something!");
       return;
     }
-    if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      wordIndex = (wordIndex + 1) % words.length;
-    }
 
-    setTimeout(typeEffect, 100);
-  }
+    alert("You submitted: " + value);
+  };
 
-  typeEffect();
-}
-
-
-// ── 4. Scroll Reveal for <section> elements ──
-const sections = document.querySelectorAll("section");
-window.addEventListener("scroll", () => {
-  sections.forEach(section => {
-    if (section.getBoundingClientRect().top < window.innerHeight - 100) {
-      section.classList.add("show");
+  // ── 14. Keyboard shortcut: Home ────────────────────────
+  document.addEventListener("keydown", e => {
+    if (e.key === "Home" && !["INPUT", "TEXTAREA"].includes(document.activeElement.tagName)) {
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion ? "auto" : "smooth" });
     }
   });
 });
 
-
-// ── 5. Skill progress bar animation on load ──
-window.addEventListener("load", () => {
-  document.body.classList.add("loaded");
+// Keep page-transition entrance lightweight.
+window.addEventListener("pageshow", () => {
+  document.body.classList.remove("page-leaving");
 });
-
-
-// ── 6. GitHub Repositories (index.html only) ─
-const projectsContainer = document.getElementById("github-projects");
-if (projectsContainer) {
-  fetch("https://api.github.com/users/pyatrick666/repos")
-    .then(res => res.json())
-    .then(data => {
-      projectsContainer.innerHTML = "";
-
-      data.slice(0, 6).forEach(repo => {
-        const languageBadge = repo.language
-          ? `<span class="language-badge">${repo.language}</span>`
-          : "";
-
-        const card = document.createElement("div");
-        card.className = "project-card";
-        card.innerHTML = `
-          <h3>${repo.name}</h3>
-          <p>${repo.description || "No description provided."}</p>
-          <div class="repo-meta">
-            ${languageBadge}
-            ⭐ ${repo.stargazers_count}
-            🍴 ${repo.forks_count}
-          </div>
-          <a href="${repo.html_url}" target="_blank">
-            <button>View Repository</button>
-          </a>
-        `;
-        projectsContainer.appendChild(card);
-      });
-    })
-    .catch(() => {
-      projectsContainer.innerHTML = "<p>Could not load GitHub projects.</p>";
-    });
-}
-
-
-// ── 7. JavaScript popup demo (javascript.html only) ──
-function showPopup() {
-  const input = document.getElementById("popup-input");
-  if (!input) return;
-  if (input.value.trim() === "") {
-    alert("Please enter something!");
-  } else {
-    alert("You submitted: " + input.value);
-  }
-}
