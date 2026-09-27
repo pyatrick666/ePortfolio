@@ -1409,3 +1409,53 @@ textarea:focus-visible {
 @media(max-width:575.98px){.responsive-bootstrap-grid{row-gap:12px}.responsive-bootstrap-grid>div>div{min-height:90px;padding:1rem!important;font-size:.9rem}}
 @media(min-width:576px) and (max-width:767.98px){.responsive-bootstrap-grid>div>div{min-height:105px}}
 @media(min-width:768px){.responsive-bootstrap-grid>div>div{min-height:125px}}
+
+
+/* ===== SUPPORT / eSEWA ===== */
+.support-nav-link{display:inline-flex!important;align-items:center;gap:6px}
+.support-nav-link i{font-size:.85em}
+#nav-links li a.support-nav-link{color:#fff}
+#nav-links li a.support-nav-link:hover{color:#ffe08a}
+.support-hero{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:34px;align-items:center;padding:85px 0 45px}
+.support-copy h1{font-size:clamp(2.6rem,6vw,5rem);line-height:1.02;margin:10px 0 18px}
+.support-copy .lead-copy{max-width:720px}
+.support-trust{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.support-trust span{display:inline-flex;align-items:center;gap:8px;padding:9px 12px;border:1px solid var(--glass-border);border-radius:999px;background:var(--glass);backdrop-filter:blur(14px);font-size:.78rem;font-weight:700;color:var(--text-muted)}
+.support-trust i{color:var(--accent)}
+.support-card{padding:30px;border-radius:28px;text-align:left;position:relative;overflow:hidden}
+.support-card:before{content:"";position:absolute;inset:auto -50px -80px auto;width:180px;height:180px;border-radius:50%;background:rgba(13,110,253,.14);filter:blur(20px)}
+.support-icon{width:58px;height:58px;display:grid;place-items:center;border-radius:18px;background:rgba(13,110,253,.12);color:var(--accent);font-size:1.45rem;margin-bottom:18px}
+.support-card h2{margin:7px 0 8px}
+.support-muted{color:var(--text-muted);font-size:.88rem;line-height:1.65}
+.support-amounts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:20px 0}
+.support-amounts button{border:1px solid var(--glass-border);background:rgba(255,255,255,.42);color:var(--text-main);padding:12px;border-radius:14px;font-weight:800;cursor:pointer;transition:.25s ease}
+.support-amounts button:hover,.support-amounts button.selected{border-color:var(--accent);background:rgba(13,110,253,.10);transform:translateY(-2px)}
+.support-custom{display:block;font-size:.76rem;font-weight:800;color:var(--text-muted);margin-bottom:14px}
+.support-input-wrap{display:flex;align-items:center;margin-top:7px;border:1px solid var(--glass-border);border-radius:14px;background:rgba(255,255,255,.42);overflow:hidden}
+.support-input-wrap span{padding-left:14px;font-weight:800;color:var(--text-muted)}
+.support-input-wrap input{width:100%;border:0;outline:0;background:transparent;color:var(--text-main);padding:13px 14px;font:inherit}
+.support-pay-btn{width:100%;border:0;border-radius:15px;padding:14px 18px;background:#0d6efd;color:#fff;font-weight:900;cursor:pointer;box-shadow:0 12px 30px rgba(13,110,253,.22);transition:.25s ease}
+.support-pay-btn:hover{transform:translateY(-2px);box-shadow:0 16px 35px rgba(13,110,253,.30)}
+.support-status{min-height:20px;color:var(--text-muted);font-size:.76rem;line-height:1.5;margin:12px 0 0}
+.support-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:20px 0 75px}
+.support-info-grid .about-card{margin:0;max-width:none}
+.support-steps{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:16px}
+.support-steps li{display:flex;gap:13px;align-items:flex-start}
+.support-steps li>span{flex:0 0 34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(13,110,253,.10);color:var(--accent);font-weight:900;font-size:.72rem}
+.support-steps strong,.support-steps small{display:block}
+.support-steps small{margin-top:3px;color:var(--text-muted);line-height:1.5}
+.support-merchant-btn{display:inline-flex;margin-top:8px;text-decoration:none}
+.support-note{margin:16px 0 0;color:var(--text-muted);font-size:.76rem;line-height:1.55}
+.support-note i{color:var(--accent);margin-right:5px}
+.dark-mode .support-trust span,.dark-mode .support-amounts button,.dark-mode .support-input-wrap{background:rgba(18,23,35,.55);border-color:rgba(255,255,255,.10)}
+.dark-mode .support-amounts button{color:#f8fafc}
+.dark-mode .support-input-wrap input{color:#f8fafc}
+@media(max-width:800px){
+  .support-hero,.support-info-grid{grid-template-columns:1fr}
+  .support-hero{padding-top:55px}
+}
+@media(max-width:480px){
+  .support-card{padding:22px}
+  .support-trust{gap:7px}
+  .support-trust span{font-size:.7rem}
+}
