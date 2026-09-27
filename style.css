@@ -1134,3 +1134,30 @@ footer {
     padding-bottom: 18px;
   }
 }
+
+
+/* Premium home hero */
+.hero-section{position:relative;text-align:center;padding:90px 20px 55px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 13px;border:1px solid rgba(13,110,253,.18);border-radius:999px;background:rgba(255,255,255,.32);backdrop-filter:blur(14px);font-size:.72rem;font-weight:800;letter-spacing:.08em;color:#2563eb;animation:floatBadge 3s ease-in-out infinite}
+.hero-badge span{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 12px rgba(34,197,94,.75)}
+.hero-name{background:linear-gradient(90deg,#0d6efd,#00b8d9,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-actions{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:28px 0 34px}
+.hero-actions a{text-decoration:none}
+.hero-actions button{min-width:175px;padding:12px 19px;border-radius:14px;border:1px solid rgba(255,255,255,.55);font-weight:800;cursor:pointer}
+.primary-cta{background:linear-gradient(135deg,#0d6efd,#00a8cc);color:white;box-shadow:0 12px 30px rgba(13,110,253,.25)}
+.secondary-cta{background:rgba(255,255,255,.42);color:#111827;backdrop-filter:blur(15px)}
+.hero-stats{width:min(680px,100%);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.hero-stats div{padding:17px 10px;border:1px solid rgba(255,255,255,.5);border-radius:18px;background:rgba(255,255,255,.30);backdrop-filter:blur(18px);box-shadow:0 12px 35px rgba(15,23,42,.08)}
+.hero-stats strong,.hero-stats span{display:block}
+.hero-stats strong{font-size:1.4rem;background:linear-gradient(90deg,#0d6efd,#7c3aed);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-stats span{margin-top:3px;font-size:.76rem;color:#6b7280;font-weight:700}
+.section-intro{max-width:680px;margin:0 auto 30px;text-align:center}
+.section-intro h2{margin:8px 0;font-size:clamp(1.65rem,4vw,2.3rem)}
+.section-intro p{margin:0;color:#6b7280}
+.eyebrow{font-size:.72rem;font-weight:900;letter-spacing:.16em;color:#0d6efd}
+.skills-section,.projects-section{padding-top:40px}
+@keyframes floatBadge{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.dark-mode .hero-badge,.dark-mode .secondary-cta,.dark-mode .hero-stats div{background:rgba(18,23,35,.48);border-color:rgba(255,255,255,.10)}
+.dark-mode .secondary-cta{color:#f8fafc}
+.dark-mode .section-intro p,.dark-mode .hero-stats span{color:#aeb8c7}
+@media(max-width:600px){.hero-section{padding-top:65px}.hero-stats{gap:7px}.hero-stats div{padding:13px 5px}.hero-stats strong{font-size:1.15rem}.hero-stats span{font-size:.68rem}}
