@@ -172,6 +172,28 @@
 
   <script src="script.js"></script>
   <script>
+    document.querySelectorAll("[data-payment-card] .payment-method-trigger").forEach(trigger => {
+      trigger.addEventListener("click", () => {
+        const card = trigger.closest("[data-payment-card]");
+        const details = document.getElementById(trigger.getAttribute("aria-controls"));
+        const isOpen = trigger.getAttribute("aria-expanded") === "true";
+
+        document.querySelectorAll("[data-payment-card]").forEach(otherCard => {
+          const otherTrigger = otherCard.querySelector(".payment-method-trigger");
+          const otherDetails = otherCard.querySelector(".payment-details");
+          if (otherTrigger && otherDetails && otherCard !== card) {
+            otherTrigger.setAttribute("aria-expanded", "false");
+            otherDetails.hidden = true;
+            otherCard.classList.remove("is-open");
+          }
+        });
+
+        trigger.setAttribute("aria-expanded", String(!isOpen));
+        details.hidden = isOpen;
+        card.classList.toggle("is-open", !isOpen);
+      });
+    });
+
     document.querySelectorAll(".copy-payment-btn").forEach(button => {
       button.addEventListener("click", async () => {
         const value = button.dataset.copy || "";
