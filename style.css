@@ -1459,3 +1459,30 @@ textarea:focus-visible {
   .support-trust{gap:7px}
   .support-trust span{font-size:.7rem}
 }
+
+
+/* ===== SIDE-BY-SIDE PAYMENT OPTIONS ===== */
+.payment-options{padding:20px 0 70px}
+.support-amount-panel{max-width:760px;margin:0 auto 24px;padding:22px 24px;border-radius:22px}
+.support-amount-panel .support-custom{margin:0 0 10px}
+.payment-provider-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.payment-provider-card{padding:28px;border-radius:26px;position:relative;overflow:hidden}
+.payment-provider-card:after{content:"";position:absolute;width:150px;height:150px;border-radius:50%;right:-70px;bottom:-70px;filter:blur(10px);opacity:.35;pointer-events:none}
+.esewa-card:after{background:rgba(46,189,89,.20)}
+.khalti-card:after{background:rgba(92,65,190,.20)}
+.provider-heading{display:flex;align-items:center;gap:13px;margin-bottom:15px}
+.provider-heading h2{margin:3px 0 0}
+.provider-logo{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-weight:950;font-size:1.6rem;color:#fff;box-shadow:0 10px 25px rgba(0,0,0,.14)}
+.esewa-logo{background:#35a853}
+.khalti-logo{background:#5b3fb6}
+.provider-methods{display:flex;flex-wrap:wrap;gap:7px;margin:17px 0}
+.provider-methods span{padding:7px 10px;border-radius:999px;background:rgba(127,127,127,.10);border:1px solid var(--glass-border);font-size:.7rem;font-weight:800;color:var(--text-muted)}
+.provider-link{display:inline-flex;gap:7px;align-items:center;margin-top:12px;color:var(--accent);font-size:.78rem;font-weight:800;text-decoration:none}
+.provider-link:hover{text-decoration:underline}
+.khalti-pay-btn{background:#5b3fb6;box-shadow:0 12px 30px rgba(91,63,182,.22)}
+.khalti-pay-btn:hover{box-shadow:0 16px 35px rgba(91,63,182,.30)}
+.merchant-links{display:flex;flex-wrap:wrap;gap:10px}
+.secondary-merchant-btn{background:rgba(91,63,182,.12)!important;color:var(--text-main)!important;box-shadow:none!important;border:1px solid var(--glass-border)}
+@media(max-width:760px){
+  .payment-provider-grid{grid-template-columns:1fr}
+}
