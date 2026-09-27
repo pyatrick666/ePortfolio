@@ -33,35 +33,49 @@
         <div class="support-copy">
           <span class="eyebrow">SUPPORT MY WORK</span>
           <h1>Keep me <span class="hero-name">building.</span> ☕</h1>
-          <p class="lead-copy">
-            If you enjoy my projects, experiments or learning journey, you can support future builds.
-            Payments are intended to be handled securely through eSewa rather than collecting payment
-            details on this portfolio.
-          </p>
+          <p class="lead-copy">If you enjoy my projects, experiments or learning journey, you can support future builds. Choose your preferred Nepal payment method below.</p>
           <div class="support-trust">
             <span><i class="fas fa-shield-halved"></i> Secure provider checkout</span>
-            <span><i class="fas fa-mobile-screen-button"></i> Nepal-friendly</span>
+            <span><i class="fas fa-mobile-screen-button"></i> Nepal payment options</span>
             <span><i class="fas fa-code"></i> Developer-built</span>
           </div>
         </div>
-        <div class="support-card glass-panel">
-          <div class="support-icon"><i class="fas fa-mug-hot"></i></div>
-          <span class="project-kicker">eSEWA PAYMENT</span>
-          <h2>Choose your support</h2>
-          <p class="support-muted">Select an amount below. The live checkout will be activated after the eSewa merchant credentials are connected.</p>
+      </section>
+
+      <section class="payment-options reveal" aria-labelledby="payment-heading">
+        <div class="section-intro">
+          <span class="eyebrow">PAYMENT OPTIONS</span>
+          <h2 id="payment-heading">Choose how you'd like to support</h2>
+          <p>Select eSewa or Khalti. The amount selector is shared between both options.</p>
+        </div>
+        <div class="support-amount-panel glass-panel">
+          <label class="support-custom">Support amount
+            <div class="support-input-wrap"><span>Rs.</span><input id="supportAmount" type="number" min="10" step="1" value="250" inputmode="numeric" aria-label="Custom support amount"></div>
+          </label>
           <div class="support-amounts" role="group" aria-label="Support amount">
             <button type="button" data-amount="100">Rs. 100</button>
             <button type="button" data-amount="250" class="selected">Rs. 250</button>
             <button type="button" data-amount="500">Rs. 500</button>
             <button type="button" data-amount="1000">Rs. 1,000</button>
           </div>
-          <label class="support-custom">Custom amount
-            <div class="support-input-wrap"><span>Rs.</span><input id="supportAmount" type="number" min="10" step="1" value="250" inputmode="numeric" aria-label="Custom support amount"></div>
-          </label>
-          <button id="esewaPayButton" class="support-pay-btn" type="button">
-            <i class="fas fa-lock"></i> eSewa Checkout
-          </button>
-          <p id="supportStatus" class="support-status" aria-live="polite"></p>
+        </div>
+        <div class="payment-provider-grid">
+          <article class="payment-provider-card glass-panel esewa-card">
+            <div class="provider-heading"><div class="provider-logo esewa-logo">e</div><div><span class="project-kicker">PAYMENT GATEWAY</span><h2>eSewa</h2></div></div>
+            <p>Pay through eSewa's merchant checkout. Production activation requires an eligible eSewa merchant account and credentials.</p>
+            <div class="provider-methods"><span>eSewa Wallet</span><span>Online Checkout</span></div>
+            <button id="esewaPayButton" class="support-pay-btn" type="button"><i class="fas fa-lock"></i> Continue with eSewa</button>
+            <a class="provider-link" href="https://merchant.esewa.com.np/auth/register-merchant" target="_blank" rel="noopener noreferrer">Merchant registration <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <p id="esewaStatus" class="support-status" aria-live="polite"></p>
+          </article>
+          <article class="payment-provider-card glass-panel khalti-card">
+            <div class="provider-heading"><div class="provider-logo khalti-logo">K</div><div><span class="project-kicker">PAYMENT GATEWAY</span><h2>Khalti</h2></div></div>
+            <p>Pay through Khalti Payment Gateway, which supports Khalti Wallet, eBanking, mobile banking, cards and other listed methods.</p>
+            <div class="provider-methods"><span>Khalti Wallet</span><span>eBanking</span><span>Mobile Banking</span></div>
+            <button id="khaltiPayButton" class="support-pay-btn khalti-pay-btn" type="button"><i class="fas fa-lock"></i> Continue with Khalti</button>
+            <a class="provider-link" href="https://khalti.com/merchant/" target="_blank" rel="noopener noreferrer">Merchant registration <i class="fas fa-arrow-up-right-from-square"></i></a>
+            <p id="khaltiStatus" class="support-status" aria-live="polite"></p>
+          </article>
         </div>
       </section>
 
@@ -106,13 +120,16 @@
   <script src="script.js"></script>
   <script>
     const amountInput = document.getElementById("supportAmount");
-    const status = document.getElementById("supportStatus");
+    const esewaStatus = document.getElementById("esewaStatus");
+    const khaltiStatus = document.getElementById("khaltiStatus");
+    const status = document.getElementById("esewaStatus");
     document.querySelectorAll(".support-amounts button").forEach(button => {
       button.addEventListener("click", () => {
         document.querySelectorAll(".support-amounts button").forEach(item => item.classList.remove("selected"));
         button.classList.add("selected");
         amountInput.value = button.dataset.amount;
-        status.textContent = "";
+        esewaStatus.textContent = "";
+        khaltiStatus.textContent = "";
       });
     });
     amountInput.addEventListener("input", () => {
@@ -121,11 +138,20 @@
     document.getElementById("esewaPayButton").addEventListener("click", () => {
       const amount = Number(amountInput.value);
       if (!Number.isFinite(amount) || amount < 10) {
-        status.textContent = "Please enter a support amount of at least Rs. 10.";
+        esewaStatus.textContent = "Please enter a support amount of at least Rs. 10.";
         amountInput.focus();
         return;
       }
-      status.textContent = "eSewa checkout is ready for activation. Connect the production merchant credentials and secure backend to accept this amount.";
+      esewaStatus.textContent = "eSewa checkout is ready for activation. Connect production merchant credentials and the secure backend to accept this amount.";
+    });
+    document.getElementById("khaltiPayButton").addEventListener("click", () => {
+      const amount = Number(amountInput.value);
+      if (!Number.isFinite(amount) || amount < 10) {
+        khaltiStatus.textContent = "Please enter a support amount of at least Rs. 10.";
+        amountInput.focus();
+        return;
+      }
+      khaltiStatus.textContent = "Khalti checkout is ready for activation. Connect production merchant credentials and the secure backend to accept this amount.";
     });
   </script>
 </body>
