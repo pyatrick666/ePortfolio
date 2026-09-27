@@ -224,55 +224,98 @@ document.addEventListener("DOMContentLoaded", () => {
     body.classList.add("loaded");
   });
 
-  // ── 12. GitHub repository cards ─────────────────────────
+  // ── 12. GitHub repository cards + filters ─────────────
   const projectsContainer = document.getElementById("github-projects");
 
   if (projectsContainer) {
-    fetch("https://api.github.com/users/pyatrick666/repos?sort=updated&per_page=12")
+    projectsContainer.innerHTML = '<div class="github-loading"><span>Loading GitHub projects…</span></div>';
+
+    fetch("https://api.github.com/users/pyatrick666/repos?sort=updated&per_page=30")
       .then(res => {
         if (!res.ok) throw new Error("GitHub API error");
         return res.json();
       })
       .then(data => {
+        const repos = data.filter(repo => !repo.fork && !repo.archived);
+        const languages = ["All", ...new Set(repos.map(repo => repo.language).filter(Boolean))];
+
+        const toolbar = document.createElement("div");
+        toolbar.className = "project-toolbar";
+        toolbar.setAttribute("aria-label", "Filter GitHub projects");
+
+        languages.forEach((language, index) => {
+          const filter = document.createElement("button");
+          filter.type = "button";
+          filter.className = "project-filter" + (index === 0 ? " active" : "");
+          filter.textContent = language;
+          filter.dataset.language = language;
+          toolbar.appendChild(filter);
+        });
+
+        const status = document.createElement("p");
+        status.className = "project-status";
+        status.setAttribute("aria-live", "polite");
+
         projectsContainer.innerHTML = "";
+        projectsContainer.appendChild(toolbar);
+        projectsContainer.appendChild(status);
 
-        const repos = data
-          .filter(repo => !repo.fork)
-          .slice(0, 6);
+        const grid = document.createElement("div");
+        grid.className = "projects-grid";
+        projectsContainer.appendChild(grid);
 
-        if (!repos.length) {
-          projectsContainer.innerHTML = "<p>No public projects found yet.</p>";
-          return;
+        const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({
+          "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
+        }[char]));
+
+        function renderProjects(language) {
+          const filtered = language === "All"
+            ? repos.slice(0, 6)
+            : repos.filter(repo => repo.language === language).slice(0, 6);
+
+          grid.innerHTML = "";
+          status.textContent = filtered.length
+            ? filtered.length + " project" + (filtered.length === 1 ? "" : "s") + " shown"
+            : "No projects found for this technology.";
+
+          filtered.forEach((repo, index) => {
+            const card = document.createElement("article");
+            card.className = "project-card reveal visible";
+            card.style.transitionDelay = (index * 60) + "ms";
+
+            const languageBadge = repo.language
+              ? '<span class="language-badge">' + escapeHTML(repo.language) + "</span>"
+              : "";
+
+            card.innerHTML = `
+              <h3>${escapeHTML(repo.name)}</h3>
+              <p>${escapeHTML(repo.description || "A project from my GitHub portfolio.")}</p>
+              <div class="repo-meta">
+                ${languageBadge}
+                <span>⭐ ${repo.stargazers_count}</span>
+                <span>🍴 ${repo.forks_count}</span>
+              </div>
+              <a class="repo-btn" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i> View Repository
+              </a>
+            `;
+            grid.appendChild(card);
+          });
         }
 
-        repos.forEach((repo, index) => {
-          const languageBadge = repo.language
-            ? '<span class="language-badge">' + repo.language + "</span>"
-            : "";
-
-          const card = document.createElement("article");
-          card.className = "project-card reveal visible";
-          card.style.transitionDelay = (index * 70) + "ms";
-
-          card.innerHTML = `
-            <h3>${repo.name}</h3>
-            <p>${repo.description || "A project from my GitHub portfolio."}</p>
-            <div class="repo-meta">
-              ${languageBadge}
-              <span>⭐ ${repo.stargazers_count}</span>
-              <span>🍴 ${repo.forks_count}</span>
-            </div>
-            <a class="repo-btn" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
-              <button type="button"><i class="fab fa-github"></i> View Repository</button>
-            </a>
-          `;
-
-          projectsContainer.appendChild(card);
+        toolbar.addEventListener("click", event => {
+          const filter = event.target.closest(".project-filter");
+          if (!filter) return;
+          toolbar.querySelectorAll(".project-filter").forEach(button => button.classList.remove("active"));
+          filter.classList.add("active");
+          renderProjects(filter.dataset.language);
         });
+
+        renderProjects("All");
       })
       .catch(() => {
         projectsContainer.innerHTML =
-          '<p>GitHub projects could not be loaded right now. <a href="https://github.com/pyatrick666" target="_blank" rel="noopener noreferrer">View my GitHub profile</a>.</p>';
+          '<p class="project-status">GitHub projects could not be loaded right now. <a href="https://github.com/pyatrick666" target="_blank" rel="noopener noreferrer">View my GitHub profile</a>.</p>';
       });
   }
 
