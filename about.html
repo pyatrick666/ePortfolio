@@ -1,133 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>About</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Pratik Poudel | Developer Portfolio</title>
+  <meta name="description" content="Learn about Pratik Poudel, an IT student building practical web and software projects with a focus on full stack development.">
+  <meta name="theme-color" content="#0d6efd">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-
 <body>
+  <div class="bg-animation"><span></span><span></span><span></span><span></span></div>
 
-<div class="container">
-<div class="bg-animation">
-  <span></span><span></span><span></span><span></span>
-</div>
+  <div class="container">
+    <nav id="navbar" aria-label="Primary navigation">
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="fullstack.html">Full Stack</a></li>
+        <li><a href="html.html">HTML</a></li>
+        <li><a href="css.html">CSS</a></li>
+        <li><a href="bootstrap.html">Bootstrap</a></li>
+        <li><a href="javascript.html">JavaScript</a></li>
+      </ul>
+      <div class="nav-right">
+        <button id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+      </div>
+    </nav>
 
-<nav id="navbar">
-  <ul id="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="fullstack.html">Full Stack</a></li>
-    <li><a href="html.html">HTML</a></li>
-    <li><a href="css.html">CSS</a></li>
-    <li><a href="bootstrap.html">Bootstrap</a></li>
-    <li><a href="javascript.html">JavaScript</a></li>
-  </ul>
-  <div class="nav-right">
-    <button id="theme-toggle">🌙</button>
+    <main>
+      <section class="about-hero reveal">
+        <div class="about-hero-copy">
+          <span class="eyebrow">ABOUT THE DEVELOPER</span>
+          <h1>Building skills by <span class="hero-name">building things.</span></h1>
+          <p class="lead-copy">
+            I'm Pratik Poudel, an Information Technology student focused on practical web development,
+            software engineering fundamentals, and turning ideas into working digital experiences.
+          </p>
+          <div class="about-links">
+            <a href="https://github.com/pyatrick666" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/pratik-poudel-b3264a263/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="mailto:pyatrick666@gmail.com"><i class="fas fa-envelope"></i> Email Me</a>
+            <a href="resume.pdf" download><i class="fas fa-file-arrow-down"></i> Resume</a>
+          </div>
+        </div>
+        <div class="about-profile-card glass-panel">
+          <img src="profile.jpg" alt="Portrait of Pratik Poudel" class="profile-pic">
+          <div>
+            <strong>Pratik Poudel</strong>
+            <span>BSc (Hons) Information Technology</span>
+            <span>ISMT College · 2026</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-grid reveal">
+        <article class="about-card about-story">
+          <span class="eyebrow">MY STORY</span>
+          <h2>Learning through real projects</h2>
+          <p>
+            My approach to development is simple: learn a concept, build something with it, test it,
+            then improve it. This portfolio documents that process across HTML, CSS, JavaScript,
+            Bootstrap and full stack development.
+          </p>
+          <p>
+            Alongside coursework, I'm developing independent projects and experimenting with modern
+            interfaces, GitHub workflows, responsive design and interactive web experiences.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <span class="eyebrow">CURRENT FOCUS</span>
+          <ul class="focus-list">
+            <li><i class="fas fa-code"></i><span><strong>Frontend</strong><small>Semantic HTML, responsive CSS and JavaScript interactions</small></span></li>
+            <li><i class="fas fa-layer-group"></i><span><strong>Full Stack</strong><small>Understanding how UI, APIs, servers and databases connect</small></span></li>
+            <li><i class="fas fa-mobile-screen-button"></i><span><strong>UX & Responsive Design</strong><small>Interfaces that feel clear and usable across screen sizes</small></span></li>
+            <li><i class="fas fa-rocket"></i><span><strong>Project Building</strong><small>Turning coursework and ideas into deployable projects</small></span></li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="terminal-section reveal">
+        <div class="section-intro">
+          <span class="eyebrow">DEVELOPER TERMINAL</span>
+          <h2>A little peek behind the interface</h2>
+          <p>Not everything needs a fancy UI. Sometimes the terminal tells the story best.</p>
+        </div>
+        <div class="developer-terminal" role="region" aria-label="Developer terminal">
+          <div class="terminal-bar"><span></span><span></span><span></span><strong>pratik@portfolio:~</strong></div>
+          <div class="terminal-body">
+            <p><span class="terminal-prompt">pratik@portfolio:~$</span> whoami</p>
+            <p class="terminal-output">Pratik Poudel — IT student &amp; aspiring full stack developer</p>
+            <p><span class="terminal-prompt">pratik@portfolio:~$</span> skills --current</p>
+            <p class="terminal-output">HTML · CSS · JavaScript · Bootstrap · Git · Responsive UI</p>
+            <p><span class="terminal-prompt">pratik@portfolio:~$</span> status</p>
+            <p class="terminal-output terminal-success">● learning · building · shipping · improving</p>
+            <p><span class="terminal-prompt">pratik@portfolio:~$</span> next --goal</p>
+            <p class="terminal-output">Build stronger full stack applications and keep learning.</p>
+            <p><span class="terminal-prompt">pratik@portfolio:~$</span> <span class="terminal-cursor">_</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="skills-section reveal">
+        <div class="section-intro">
+          <span class="eyebrow">SKILLS</span>
+          <h2>What I'm working with</h2>
+          <p>These are learning indicators, not fixed scores — they change as I build and practice.</p>
+        </div>
+        <div class="skills-bars">
+          <div class="skill-item"><div class="skill-label"><span>HTML</span><span>90%</span></div><div class="skill-track"><div class="progress html"></div></div></div>
+          <div class="skill-item"><div class="skill-label"><span>CSS</span><span>80%</span></div><div class="skill-track"><div class="progress css"></div></div></div>
+          <div class="skill-item"><div class="skill-label"><span>JavaScript</span><span>75%</span></div><div class="skill-track"><div class="progress js"></div></div></div>
+          <div class="skill-item"><div class="skill-label"><span>Bootstrap</span><span>70%</span></div><div class="skill-track"><div class="progress bootstrap"></div></div></div>
+        </div>
+        <div class="skills-grid">
+          <a href="html.html" class="skill-badge"><img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" alt="HTML5"><p>HTML5</p></a>
+          <a href="css.html" class="skill-badge"><img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS3"><p>CSS3</p></a>
+          <a href="javascript.html" class="skill-badge"><img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript"><p>JavaScript</p></a>
+          <a href="bootstrap.html" class="skill-badge"><img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap"><p>Bootstrap</p></a>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section reveal">
+        <div class="section-intro">
+          <span class="eyebrow">CONTACT</span>
+          <h2>Let's build something</h2>
+          <p>If you'd like to discuss a project, collaboration or simply connect, reach out through one of the channels below.</p>
+        </div>
+        <div class="contact-grid">
+          <a class="contact-card" href="mailto:pyatrick666@gmail.com"><i class="fas fa-envelope"></i><span><strong>Email</strong><small>pyatrick666@gmail.com</small></span></a>
+          <a class="contact-card" href="https://github.com/pyatrick666" target="_blank" rel="noopener"><i class="fab fa-github"></i><span><strong>GitHub</strong><small>github.com/pyatrick666</small></span></a>
+          <a class="contact-card" href="https://www.linkedin.com/in/pratik-poudel-b3264a263/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i><span><strong>LinkedIn</strong><small>Connect professionally</small></span></a>
+        </div>
+        <form id="contactForm" class="contact-form" novalidate>
+          <div class="contact-form-grid">
+            <label>Name<input id="contactName" name="name" type="text" placeholder="Your name" required></label>
+            <label>Email<input id="contactEmail" name="email" type="email" placeholder="you@example.com" required></label>
+          </div>
+          <label>Message<textarea id="contactMessage" name="message" rows="5" placeholder="Tell me what you'd like to build..." required></textarea></label>
+          <button type="submit" class="primary-cta"><i class="fas fa-paper-plane"></i> Open Email Draft</button>
+          <p id="contactStatus" class="contact-status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-logo">© 2026 Pratik Poudel · bj03gj (240833161) · BSc.IT · ISMT College · CET138 Full Stack Development</div>
+      <div class="footer-icons">
+        <a href="https://github.com/pyatrick666" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:pyatrick666@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.linkedin.com/in/pratik-poudel-b3264a263/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.instagram.com/em_ev0l/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/emev0l" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.youtube.com/@999eMEvol" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      </div>
+    </footer>
   </div>
-</nav>
 
-
-<!-- About Me -->
-<section class="about-section">
-  <h2>About Me</h2>
-  <div class="about-card">
-    <img src="profile.jpg" alt="Profile" class="profile-pic">
-    <p>
-      I am Pratik Poudel, a junior full stack developer.
-      I build responsive websites using HTML, CSS, JavaScript, and Bootstrap.
-      I'm currently studying BSC.I.T at University of Sunderland.
-    </p>
-    <div class="about-links">
-      <a href="https://github.com/pyatrick666" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://www.linkedin.com/in/pratik-poudel-b3264a263/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="mailto:pyatrick666@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-    </div>
-  </div>
-    <div class="resume-section">
-    <a href="resume.pdf" download>
-      <button>Download Resume</button>
-    </a>
-  </div>
-</section>
-
-<!-- Skills Panel -->
-<section class="skills-section">
-  <h2>My Skills</h2>
-
-  <!-- Progress Bars -->
-  <div class="skills-bars">
-    <div class="skill-item">
-      <div class="skill-label"><span>HTML</span><span>90%</span></div>
-      <div class="skill-track"><div class="progress html"></div></div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-label"><span>CSS</span><span>80%</span></div>
-      <div class="skill-track"><div class="progress css"></div></div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-label"><span>JavaScript</span><span>75%</span></div>
-      <div class="skill-track"><div class="progress js"></div></div>
-    </div>
-   <div class="skill-item">
-      <div class="skill-label"><span>Bootstrap</span><span>70%</span></div>
-      <div class="skill-track"><div class="progress bootstrap"></div></div>
-    </div>
-     <!--<div class="skill-item">
-      <div class="skill-label"><span>MySQL</span><span>60%</span></div>
-      <div class="skill-track"><div class="progress nodejs"></div></div>
-    </div>
-    <div class="skill-item">
-      <div class="skill-label"><span>Node.js</span><span>55%</span></div>
-      <div class="skill-track"><div class="progress mysql"></div></div>
-    </div>
-
-  </div>  -->
-
-  <!-- Skill Badge Cards -->
-  
-  <div class="skills-grid">
-
-  <a href="html.html" class="skill-badge">
-    <img src="https://cdn-icons-png.flaticon.com/512/732/732212.png" width="50">
-    <p>HTML5</p>
-  </a>
-
-  <a href="css.html" class="skill-badge">
-    <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" width="50">
-    <p>CSS3</p>
-  </a>
-
-  <a href="javascript.html" class="skill-badge">
-    <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" width="50">
-    <p>JavaScript</p>
-  </a>
-
-  <a href="bootstrap.html" class="skill-badge">
-    <img src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo-shadow.png" width="50">
-    <p>Bootstrap</p>
-  </a>
-
-</div>
-
-  
-</section>
-
-<footer>
-  <div class="footer-logo">© 2026 Pratik Poudel ·  bj03gj  (240833161)  ·  BSc.IT  ·  ISMT College  ·  CET138 Full Stack Development</div>
-  <div class="footer-icons">
-    <a href="https://github.com/pyatrick666" target="_blank"><i class="fab fa-github"></i></a>
-    <a href="mailto:pyatrick666@gmail.com"><i class="fas fa-envelope"></i></a>
-    <a href="https://www.linkedin.com/in/pratik-poudel-b3264a263/" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a href="https://www.instagram.com/em_ev0l/" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.facebook.com/emev0l" target="_blank"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.youtube.com/@999eMEvol" target="_blank"><i class="fab fa-youtube"></i></a>
-  </div>
-</footer>
-
-</div>
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
