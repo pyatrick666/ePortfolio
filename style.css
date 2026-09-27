@@ -1100,3 +1100,37 @@ button:hover::before,
     font-size: 0.9rem;
   }
 }
+
+
+/* Page transition polish */
+body {
+  opacity: 1;
+  transition: opacity 0.22s ease, background 0.5s ease, color 0.35s ease;
+}
+
+body.page-leaving {
+  opacity: 0;
+}
+
+footer {
+  position: relative;
+  left: auto;
+  bottom: auto;
+  width: 100%;
+  margin-top: 80px;
+}
+
+/* Keep interactive overlays above page content */
+#scroll-progress,
+#back-to-top,
+#snow-toggle {
+  pointer-events: auto;
+}
+
+@media (max-width: 768px) {
+  footer {
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 18px;
+  }
+}
