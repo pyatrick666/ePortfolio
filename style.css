@@ -1541,3 +1541,21 @@ textarea:focus-visible {
 .support-simple-note>i{
   flex:0 0 auto;
 }
+
+
+/* ===== SUPPORT HERO CENTERING ===== */
+.support-hero{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+.support-hero .support-copy{
+  width:100%;
+  max-width:850px;
+  margin:0 auto;
+}
+.support-hero .support-trust{
+  justify-content:center;
+  text-align:center;
+}
