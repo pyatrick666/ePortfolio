@@ -345,3 +345,26 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("pageshow", () => {
   document.body.classList.remove("page-leaving");
 });
+
+
+/* Contact form: opens the visitor's email client with a pre-filled draft. */
+const contactForm = document.getElementById("contactForm");
+if (contactForm) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const name = document.getElementById("contactName")?.value.trim();
+    const email = document.getElementById("contactEmail")?.value.trim();
+    const message = document.getElementById("contactMessage")?.value.trim();
+    const status = document.getElementById("contactStatus");
+
+    if (!name || !email || !message) {
+      if (status) status.textContent = "Please complete all fields before opening your email draft.";
+      return;
+    }
+
+    const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:pyatrick666@gmail.com?subject=${subject}&body=${body}`;
+    if (status) status.textContent = "Opening your email application…";
+  });
+}
