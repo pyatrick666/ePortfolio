@@ -109,41 +109,6 @@
   </div>
 
   <script src="script.js"></script>
-  <script>
-    const amountInput = document.getElementById("supportAmount");
-    const esewaStatus = document.getElementById("esewaStatus");
-    const khaltiStatus = document.getElementById("khaltiStatus");
-    const status = document.getElementById("esewaStatus");
-    document.querySelectorAll(".support-amounts button").forEach(button => {
-      button.addEventListener("click", () => {
-        document.querySelectorAll(".support-amounts button").forEach(item => item.classList.remove("selected"));
-        button.classList.add("selected");
-        amountInput.value = button.dataset.amount;
-        esewaStatus.textContent = "";
-        khaltiStatus.textContent = "";
-      });
-    });
-    amountInput.addEventListener("input", () => {
-      document.querySelectorAll(".support-amounts button").forEach(item => item.classList.remove("selected"));
-    });
-    document.getElementById("esewaPayButton").addEventListener("click", () => {
-      const amount = Number(amountInput.value);
-      if (!Number.isFinite(amount) || amount < 10) {
-        esewaStatus.textContent = "Please enter a support amount of at least Rs. 10.";
-        amountInput.focus();
-        return;
-      }
-      esewaStatus.textContent = "eSewa checkout is ready for activation. Connect production merchant credentials and the secure backend to accept this amount.";
-    });
-    document.getElementById("khaltiPayButton").addEventListener("click", () => {
-      const amount = Number(amountInput.value);
-      if (!Number.isFinite(amount) || amount < 10) {
-        khaltiStatus.textContent = "Please enter a support amount of at least Rs. 10.";
-        amountInput.focus();
-        return;
-      }
-      khaltiStatus.textContent = "Khalti checkout is ready for activation. Connect production merchant credentials and the secure backend to accept this amount.";
-    });
-  </script>
+
 </body>
 </html>
