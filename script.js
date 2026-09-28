@@ -170,6 +170,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const href = link.getAttribute("href");
       if (!href || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
 
+      const targetUrl = new URL(href, window.location.href);
+      if (targetUrl.origin !== window.location.origin || targetUrl.pathname === window.location.pathname) return;
+
       e.preventDefault();
       body.classList.add("page-leaving");
       setTimeout(() => { window.location.href = href; }, prefersReducedMotion ? 0 : 220);
@@ -187,11 +190,14 @@ document.addEventListener("DOMContentLoaded", () => {
       "Creative Web Experiences"
     ];
 
-    let wordIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
+    if (prefersReducedMotion) {
+      typingEl.textContent = words[0];
+    } else {
+      let wordIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
 
-    function typeEffect() {
+      function typeEffect() {
       const word = words[wordIndex];
 
       if (!deleting) {
@@ -213,10 +219,11 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      setTimeout(typeEffect, deleting ? 55 : 85);
-    }
+        setTimeout(typeEffect, deleting ? 55 : 85);
+      }
 
-    typeEffect();
+      typeEffect();
+    }
   }
 
   // ── 11. Skill progress animation ───────────────────────
@@ -295,10 +302,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 <span>⭐ ${repo.stargazers_count}</span>
                 <span>🍴 ${repo.forks_count}</span>
               </div>
-              <a class="repo-btn" href="${repo.html_url}" target="_blank" rel="noopener noreferrer">
+              <a class="repo-btn" href="#" target="_blank" rel="noopener noreferrer">
                 <i class="fab fa-github"></i> View Repository
               </a>
             `;
+            const repoLink = card.querySelector(".repo-btn");
+            if (repoLink && /^https:\/\/github\.com\//i.test(repo.html_url || "")) {
+              repoLink.href = repo.html_url;
+            } else if (repoLink) {
+              repoLink.removeAttribute("href");
+              repoLink.removeAttribute("target");
+              repoLink.setAttribute("aria-disabled", "true");
+            }
+
             grid.appendChild(card);
           });
         }
@@ -347,24 +363,42 @@ window.addEventListener("pageshow", () => {
 });
 
 
-/* Contact form: opens the visitor's email client with a pre-filled draft. */
-const contactForm = document.getElementById("contactForm");
-if (contactForm) {
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const name = document.getElementById("contactName")?.value.trim();
-    const email = document.getElementById("contactEmail")?.value.trim();
-    const message = document.getElementById("contactMessage")?.value.trim();
-    const status = document.getElementById("contactStatus");
+  // ── 15. Contact form mailto helper ─────────────────────
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) {
+    contactForm.addEventListener("submit", event => {
+      event.preventDefault();
+      const name = document.getElementById("contactName")?.value.trim();
+      const email = document.getElementById("contactEmail")?.value.trim();
+      const message = document.getElementById("contactMessage")?.value.trim();
+      const status = document.getElementById("contactStatus");
 
-    if (!name || !email || !message) {
-      if (status) status.textContent = "Please complete all fields before opening your email draft.";
-      return;
+      if (!name || !email || !message) {
+        if (status) status.textContent = "Please complete all fields before opening your email draft.";
+        return;
+      }
+
+      const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+      window.location.href = `mailto:pyatrick666@gmail.com?subject=${subject}&body=${body}`;
+      if (status) status.textContent = "Opening your email application…";
+    });
+  }
+
+  // ── 16. Character counter used by the JavaScript demo ──
+  window.updateCount = function () {
+    const textarea = document.getElementById("bioInput");
+    const counter = document.getElementById("charCount");
+    if (!textarea || !counter) return;
+
+    const length = textarea.value.length;
+    counter.textContent = length;
+
+    if (length < 100) {
+      counter.style.color = "green";
+    } else if (length <= 130) {
+      counter.style.color = "orange";
+    } else {
+      counter.style.color = "red";
     }
-
-    const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
-    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
-    window.location.href = `mailto:pyatrick666@gmail.com?subject=${subject}&body=${body}`;
-    if (status) status.textContent = "Opening your email application…";
-  });
-}
+  };
