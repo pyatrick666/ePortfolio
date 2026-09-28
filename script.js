@@ -357,12 +357,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Keep page-transition entrance lightweight.
-window.addEventListener("pageshow", () => {
-  document.body.classList.remove("page-leaving");
-});
-
-
   // ── 15. Contact form mailto helper ─────────────────────
   const contactForm = document.getElementById("contactForm");
   if (contactForm) {
@@ -402,3 +396,9 @@ window.addEventListener("pageshow", () => {
       counter.style.color = "red";
     }
   };
+});
+
+// Keep page-transition entrance lightweight.
+window.addEventListener("pageshow", () => {
+  document.body.classList.remove("page-leaving");
+});
