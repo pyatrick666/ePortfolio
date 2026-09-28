@@ -356,8 +356,13 @@ let count = 0;
 document.getElementById("registerForm").addEventListener("submit", function(e) {
   e.preventDefault(); // stop page reload
 
-  const name = document.getElementById("name").value;
-  const email = document.getElementById("email").value;
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const escapeHTML = value => String(value).replace(/[&<>"']/g, char => ({
+    "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
+  }[char]));
+  const safeName = escapeHTML(name);
+  const safeEmail = escapeHTML(email);
 
   const area = document.getElementById("responseArea");
 
@@ -380,8 +385,8 @@ document.getElementById("registerForm").addEventListener("submit", function(e) {
       area.innerHTML = `
         <div class="alert alert-success alert-dismissible fade show">
           ✅ Registration successful! <br>
-          Welcome, <strong>${name}</strong> 🎉 <br>
-          Email: ${email}
+          Welcome, <strong>${safeName}</strong> 🎉 <br>
+          Email: ${safeEmail}
           
         </div>
       `;
