@@ -108,23 +108,7 @@ JavaScript is used to make websites interactive, such as handling events, forms,
   <p><a class="legacy-download-btn" href="1_javascript­Pratikpoudel.pdf" download>Download Project Report</a></p>
   <p><a href="https://www.w3schools.com/js/" target="_blank">Learn more about JavaScript</a></p>
 </div>
-<script>
-const textarea = document.getElementById("bioInput");
-const counter = document.getElementById("charCount");
 
-textarea.addEventListener("input", function () {
-  let length = textarea.value.length;
-  counter.textContent = length;
-
-  if (length < 100) {
-    counter.style.color = "green";
-  } else if (length <= 130) {
-    counter.style.color = "orange";
-  } else {
-    counter.style.color = "red";
-  }
-});
-</script>
 </section>
 
 <footer>
