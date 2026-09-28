@@ -357,6 +357,8 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+
   // ── 15. Contact form mailto helper ─────────────────────
   const contactForm = document.getElementById("contactForm");
   if (contactForm) {
