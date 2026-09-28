@@ -1957,3 +1957,36 @@ body.dark-mode #nav-links li a.support-nav-link:hover{
     width:min(230px,calc(100% - 20px));
   }
 }
+
+
+/* ===== HTML INTEGRITY & ACCESSIBILITY FIXES ===== */
+.hero-cta-link{
+  min-width:175px;
+  padding:12px 19px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.55);
+  font-weight:800;
+  text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  box-sizing:border-box;
+}
+.hero-actions .hero-cta-link{transition:transform .25s ease,box-shadow .25s ease,background .25s ease}
+.hero-actions .hero-cta-link:hover{transform:translateY(-2px)}
+.legacy-download-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin:5px;
+  padding:8px 12px;
+  border:0;
+  border-radius:6px;
+  background:var(--accent,#0d6efd);
+  color:#fff;
+  text-decoration:none;
+  cursor:pointer;
+  font-weight:700;
+}
+.legacy-download-btn:hover{transform:translateY(-2px)}
