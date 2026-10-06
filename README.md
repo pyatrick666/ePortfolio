@@ -25,7 +25,6 @@ The website uses a clean **glassmorphism-inspired interface**, responsive layout
 - Interactive project showcase
 - GitHub project integration
 - Skills and coursework sections
-- Downloadable CV / resume
 - Interactive HTML, CSS, JavaScript and Bootstrap demonstrations
 - Support Me page with eSewa, Khalti and bank payment options
 - Mobile-friendly layouts
