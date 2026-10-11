@@ -2,9 +2,6 @@
 
 A responsive, multi-page portfolio presenting my academic background, technical skills, coursework, and practical development projects.
 
-- **Live site:** https://pyatrick666.github.io/ePortfolio/
-- **Repository:** https://github.com/pyatrick666/ePortfolio
-- **Developer:** Pratik Poudel
 
 ## Overview
 
