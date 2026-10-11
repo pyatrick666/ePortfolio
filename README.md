@@ -61,15 +61,6 @@ https://pyatrick666.github.io/ePortfolio/
 
 For changes, commit and push the updated files to the branch configured as the GitHub Pages publishing source, then check the repository's **Settings → Pages** and **Actions** tabs if the live site does not update.
 
-## Featured project
-
-### ChessMate
-
-A Flutter-based chess game focused on a playable mobile experience.
-
-- **Play:** https://pyatrick666.itch.io/chessmate
-- **GitHub profile:** https://github.com/pyatrick666
-
 ## Contact
 
 - **GitHub:** https://github.com/pyatrick666
